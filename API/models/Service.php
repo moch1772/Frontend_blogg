@@ -63,7 +63,7 @@ Class Service{
 
     public function read_service(){
         //Create query
-        $query = 'SELECT * FROM post, service WHERE post.serviceID = service.serviceID AND service.publish = 1';
+        $query = 'SELECT * FROM post, service';
         //Preparing statement
         $stmt = $this->conn->prepare($query);
         //Executing query
