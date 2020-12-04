@@ -1,0 +1,29 @@
+*{
+    margin:0;
+    padding:0;
+    border:0;
+}
+.content{
+    width:98.7vw;
+    height:120vh;
+    background-color: rgb(103, 174, 197);
+}
+.foreground{
+    width:80vw;
+    height:120vh;
+    margin-left:auto;
+    margin-right:auto;
+    background-color:rgb(255, 255, 255);
+}
+.billboard{
+    width:80vw;
+    height:40vh;
+    margin-left:auto;
+    margin-right:auto;
+    background-color: rgb(121, 154, 219);
+}
+.title{
+    text-align: center;
+    margin-top: -25vh;
+    z-index:1;
+}
