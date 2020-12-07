@@ -1,7 +1,6 @@
 <?php
-$API="K1F0W7hPsYr8Iu698pf5";
-$serviceID=1;
-servicePage($API,$serviceID);
+
+
 function servicePage($API,$serviceID){
 $url = "http://sko.te4-ntig.se/wider/api/pages/read_page_service.php?API=$API&serviceID=$serviceID";
 
@@ -16,7 +15,7 @@ $output = file_get_contents($url);
     
      for ($i=0; $i < $count; $i++) { 
          $pageID=$tt['pages'][$i]['pageID'];
-         echo $pageID;
+         
          $ul = "http://sko.te4-ntig.se/wider/api/pages/read_post_page.php?API=$API&pageID=$pageID";
          $outpt = file_get_contents($ul);
         $redPost=json_decode($outpt,true);
@@ -29,9 +28,12 @@ $output = file_get_contents($url);
             $postID=$redPost['posts'][$s]['postID'];
             $postTitel=$redPost['posts'][$s]['postTitle'];
             $postText=$redPost['posts'][$s]['pText'];
-            echo$postTitel;
-            echo "<br>$postText<br>";
-            echo$postID;
+            
+        
+        echo"<div class='postTitle'><h2>$postTitel</h2></div>
+            <div class='text'>$postText</div>
+            <div class='img'><h2>Bild</h2></div>";
+           
          }
         }
         
