@@ -32,8 +32,8 @@ $output = file_get_contents($url);
         
         echo"<div class='postTitle'><h2>$postTitel</h2></div>
             <div class='text'>$postText</div>
-            <div class='img'><h2>Bild</h2></div>";
-           
+            <img src='../img/360.jpg' class='img'>
+            <img src='../icon/25360.png' class='icon'>";
          }
         }
         
