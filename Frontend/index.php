@@ -16,7 +16,27 @@ $serviceID=2;
     echo'<div class="content">
     <div class="foreground">
             <div class="billboard"></div>
-            <div class="title"><h1>serviceTitel</h1></div>';
+            <div class="title"><h1>serviceTitel</h1></div>
+            
+            <div class="menu">
+                <div class="mLButton">
+                    <div class="mText">
+                    home
+                    </div>
+                </div>
+                <div class="mRButton">
+                    <div class="mText">
+                        profile
+                    </div>
+                </div>
+                <div class="msearch">
+                        <form action="search.php" method="POST">
+                            <input type="text" id="search" name="search" placeholder="Search"></form>
+                        </form>
+                </div>
+            </div>
+
+            ';
     servicePage($API,$serviceID);
     echo'</div></div>';
     ?>
