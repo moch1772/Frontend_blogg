@@ -22,22 +22,22 @@ $serviceID=2;
             echo'</h1></div>
             
             <div class="menu">
-                <div class="mLButton">
-                    <div class="mText">
-                    home
-                    </div>
+            <a href="https://www.youtube.com/" class="mLButton">
+                <div class="mText">
+                    Home
                 </div>
-                <div class="mRButton">
-                    <div class="mText">
-                        profile
-                    </div>
+            </a>
+            <a href="https://www.youtube.com/" class="mRButton">
+                <div class="mText">
+                    Profile
                 </div>
-                <div class="msearch">
-                        <form action="search.php" method="POST">
-                            <input type="text" id="search" name="search" placeholder="Search"></form>
-                        </form>
-                </div>
+            </a>
+            <div class="msearch">
+                    <form action="search.php" method="POST">
+                        <input type="text" id="search" name="search" placeholder="Search"></form>
+                    </form>
             </div>
+        </div>
 
             ';
     servicePage($API,$serviceID);
