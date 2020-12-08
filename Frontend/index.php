@@ -10,9 +10,10 @@
 <body>
 <?php
 include "getservice.php";
-$API="K1F0W7hPsYr8Iu698pf5";
+$API="RRmjdNWZuAeDqhEPrCWT";
 $serviceID=2;
-
+//$pageTitle="nog";
+//sertchPage($API,$serviceID,$pageTitle);
     echo'<div class="content">
     <div class="foreground">
             <div class="billboard"></div>
@@ -42,5 +43,6 @@ $serviceID=2;
     servicePage($API,$serviceID);
     echo'</div></div>';
     ?>
+   
 </body>
 </html>
