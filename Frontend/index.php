@@ -16,7 +16,9 @@ $serviceID=2;
     echo'<div class="content">
     <div class="foreground">
             <div class="billboard"></div>
-            <div class="title"><h1>serviceTitel</h1></div>
+            <div class="title"><h1>';
+            serviceTitle($API,$serviceID);
+            echo'</h1></div>
             
             <div class="menu">
                 <div class="mLButton">
