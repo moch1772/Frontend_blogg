@@ -22,12 +22,12 @@ $serviceID=2;
             echo'</h1></div>
             
             <div class="menu">
-            <a href="https://www.youtube.com/" class="mLButton">
+            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstleyVEVO" class="mLButton">
                 <div class="mText">
                     Home
                 </div>
             </a>
-            <a href="https://www.youtube.com/" class="mRButton">
+            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstleyVEVO" class="mRButton">
                 <div class="mText">
                     Profile
                 </div>
