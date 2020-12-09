@@ -48,7 +48,7 @@ function servicePage($API,$serviceID){
     
      for ($i=0; $i < $count; $i++) { 
          $pageID=$tt['pages'][$i]['pageID'];
-         //$pageTitle=$tt['pages'][$i]['pageTitle'];
+         // $pageTitle=$tt['pages'][$i]['pageTitle'];
          
          //$ul = "http://sko.te4-ntig.se/wider/api/pages/read_post_page.php?API=$API&pageID=$pageID"; 
          $ul = "http://wider.ntigskovde.se/api/pages/read_post_page.php?API=$API&pageID=$pageID";

@@ -14,7 +14,7 @@ include "getservice.php";
 $API=$_SESSION['API'];
 $serviceID=2;
 //$pageTitle="nog";
-//sertchPage($API,$serviceID,$pageTitle);
+// sertchPage($API,$serviceID,$pageTitle);
     echo'<div class="content">
     <div class="foreground">
             <div class="billboard"></div>
