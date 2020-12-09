@@ -9,8 +9,9 @@
 </head>
 <body>
 <?php
+session_start();
 include "getservice.php";
-$API="RRmjdNWZuAeDqhEPrCWT";
+$API=$_SESSION['API'];
 $serviceID=2;
 //$pageTitle="nog";
 //sertchPage($API,$serviceID,$pageTitle);
