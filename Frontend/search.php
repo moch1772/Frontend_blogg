@@ -107,7 +107,7 @@ $serviceID=2;
     <div class="foreground">
             <div class="billboard"></div>
             <div class="title"><h1>';
-            echo "You are searching for $search (Karl vet inte hur man skriver meningar)";
+            echo "You are searching for $search";
             echo'</h1></div>
             
             <div class="menu">
