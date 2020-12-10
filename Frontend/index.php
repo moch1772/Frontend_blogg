@@ -11,8 +11,10 @@
 <?php
 session_start();
 include "getservice.php";
+
 $API=$_SESSION['API'];
 $serviceID=2;
+  
 //$pageTitle="nog";
 // sertchPage($API,$serviceID,$pageTitle);
     echo'<div class="content">
@@ -20,7 +22,8 @@ $serviceID=2;
             <div class="billboard"></div>
             <div class="title"><h1>';
             serviceTitle($API,$serviceID);
-            echo'</h1></div>
+            echo'</h1></div>';
+            ?>
             
             <div class="menu">
             <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstleyVEVO" class="mLButton">
@@ -39,10 +42,10 @@ $serviceID=2;
                     </form>
             </div>
         </div>
+    <?php
 
-            ';
-    servicePage($API,$serviceID);
-    echo'</div></div>';
+        servicePage($API,$serviceID);
+        echo'</div></div>';
     ?>
    
 </body>
