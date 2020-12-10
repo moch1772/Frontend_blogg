@@ -9,11 +9,14 @@
 </head>
 <body>
 <?php
+session_start();
 include "getservice.php";
-$API="RRmjdNWZuAeDqhEPrCWT";
-$serviceID=3;
+
+$API=$_SESSION['API'];
+$serviceID=2;
+  
 //$pageTitle="nog";
-//sertchPage($API,$serviceID,$pageTitle);
+// sertchPage($API,$serviceID,$pageTitle);
     echo'<div class="content">
     <div class="foreground">
             <div class="billboard"></div>

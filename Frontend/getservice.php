@@ -10,6 +10,8 @@ function serviceTitle($API,$serviceID){
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     
     $output = curl_exec($ch);
+    timeout($output);
+
     $s=strpos($output,'","serviceD');
     $d=strpos($output,'Title":"');
     $d+=8;
@@ -19,6 +21,11 @@ function serviceTitle($API,$serviceID){
     echo$serTitle;
     
 }
+function timeout($output){
+    if ($output=="tiemaout") {
+        header("location:login.php");
+    }
+}
 function servicePage($API,$serviceID){
    
     //sends reqest via url
@@ -27,18 +34,21 @@ function servicePage($API,$serviceID){
 
     
     $output = file_get_contents($url);
+
+    timeout($output);
     $tt=json_decode($output,true);
     
-    
-    //calculatess length of output array
     $count=0;
+    //calculatess length of output array
+    if (isset($tt)) {
+   
     foreach($tt as $t){
         $count +=count($t);
-    }
+    }}
     
      for ($i=0; $i < $count; $i++) { 
          $pageID=$tt['pages'][$i]['pageID'];
-         //$pageTitle=$tt['pages'][$i]['pageTitle'];
+         // $pageTitle=$tt['pages'][$i]['pageTitle'];
          
          //$ul = "http://sko.te4-ntig.se/wider/api/pages/read_post_page.php?API=$API&pageID=$pageID"; 
          $ul = "http://wider.ntigskovde.se/api/pages/read_post_page.php?API=$API&pageID=$pageID";
@@ -76,8 +86,9 @@ function servicePage($API,$serviceID){
         //$ulc = "http://sko.te4-ntig.se/wider/api/comment/read_page_comment.php?API=$API&pageID=$pageID";
         $ulc = "http://wider.ntigskovde.se/api/comment/read_page_comment.php?API=$API&pageID=$pageID";
         
-        $como= file_get_contents($ulc);
-       $redComment=json_decode($como,true);
+        $output= file_get_contents($ulc);
+        timeout($output);
+       $redComment=json_decode($output,true);
 
        $count=0;
        foreach($redComment as $red){
@@ -88,6 +99,23 @@ function servicePage($API,$serviceID){
         echo $comment;
        }
        
+    }
+    function logIn($uname,$paword){
+        $arry=json_encode(array("username"=>$uname,"password"=>$paword));
+        $ch=curl_init();
+        $url="http://wider.ntigskovde.se/api/user/authenticate_user.php";
+        
+        curl_setopt($ch, CURLOPT_URL, $url);
+
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+    curl_setopt($ch, CURLOPT_POST, 1);
+
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $arry);
+
+    $output = curl_exec($ch);
+
+     return $output;
     }
     /*function sertchPage($API,$serviceID,$pageTitle){
         //$url = "http://sko.te4-ntig.se/wider/api/pages/read_page_service.php?API=$API&serviceID=$serviceID";
