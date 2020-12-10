@@ -69,14 +69,14 @@ function servicePage($API,$serviceID){
             if($s==0){
                 echo"<div class='post' style='font-weight:bold;'>
                 <div class='postTitle'><h2>$postTitel</h2></div>
-                <img src='../img/360.jpg' class='img'>
+                <img src='$imageURL' class='img'>
                 <div class='text'>$postText</div>
                 <img src='../icon/25360.png' class='icon'>
                 </div>";
             }else{
             echo"<div class='post'>
                 <div class='postTitle'><h2>$postTitel</h2></div>
-                <img src='../img/360.jpg' class='img'>
+                <img src='$imageURL' class='img'>
                 <div class='text'>$postText</div>
                 <img src='../icon/25360.png' class='icon'>
                 </div>";
