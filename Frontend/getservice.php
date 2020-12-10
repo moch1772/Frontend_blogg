@@ -66,14 +66,21 @@ function servicePage($API,$serviceID){
             $postTitel=$redPost['posts'][$s]['postTitle'];
             $postText=$redPost['posts'][$s]['pText'];
             $imageURL=$redPost['posts'][$s]['imageURL'];
-            
-        
-        echo"<div class='post'>
-            <div class='postTitle'><h2>$postTitel</h2></div>
-            <img src='../img/360.jpg' class='img'>
-            <div class='text'>$postText</div>
-            <img src='../icon/25360.png' class='icon'>
-            </div>";
+            if($s==0){
+                echo"<div class='post' style='font-weight:bold;'>
+                <div class='postTitle'><h2>$postTitel</h2></div>
+                <img src='../img/360.jpg' class='img'>
+                <div class='text'>$postText</div>
+                <img src='../icon/25360.png' class='icon'>
+                </div>";
+            }else{
+            echo"<div class='post'>
+                <div class='postTitle'><h2>$postTitel</h2></div>
+                <img src='../img/360.jpg' class='img'>
+                <div class='text'>$postText</div>
+                <img src='../icon/25360.png' class='icon'>
+                </div>";
+            }
            
          }
         }

@@ -1,5 +1,6 @@
 <?php
-$API="RRmjdNWZuAeDqhEPrCWT";
+session_start();
+$API=$_SESSION['API'];
 //hämtar service ID and puts it in an array
 if(isset($_POST['search'])){
     $pages=array();
@@ -99,7 +100,6 @@ if(isset($_POST['search'])){
 <body>
 <?php
 include "getservice.php";
-$API=$_SESSION['API'];
 //$pageTitle="nog";
 //sertchPage($API,$serviceID,$pageTitle);
     echo'<div class="content">
@@ -136,7 +136,7 @@ $API=$_SESSION['API'];
             $service = curl_exec($ch);
             $service = ltrim($service, ',');
             $service=json_decode($service,true);   
-            echo'<a class="link" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstleyVEVO">
+            echo'<a class="link" href="blogg.php?service='.$serviceID.'">
             <div class="searchBox">
             <div class="searchTitle">'.
                     $service["serviceTitle"]   
