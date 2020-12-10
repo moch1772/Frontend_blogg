@@ -99,8 +99,7 @@ if(isset($_POST['search'])){
 <body>
 <?php
 include "getservice.php";
-$API="RRmjdNWZuAeDqhEPrCWT";
-$serviceID=2;
+$API=$_SESSION['API'];
 //$pageTitle="nog";
 //sertchPage($API,$serviceID,$pageTitle);
     echo'<div class="content">
