@@ -107,7 +107,7 @@ $serviceID=2;
     <div class="foreground">
             <div class="billboard"></div>
             <div class="title"><h1>';
-            echo "you are searching for $search";
+            echo "You are searching for $search (Karl vet inte hur man skriver meningar)";
             echo'</h1></div>
             
             <div class="menu">
@@ -137,7 +137,7 @@ $serviceID=2;
             $service = curl_exec($ch);
             $service = ltrim($service, ',');
             $service=json_decode($service,true);   
-            echo'<a class="link" href="https://www.w3schools.com/css/tryit.asp?filename=trycss_font-size_px">
+            echo'<a class="link" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstleyVEVO">
             <div class="searchBox">
             <div class="searchTitle">'.
                     $service["serviceTitle"]   
