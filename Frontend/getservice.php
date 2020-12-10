@@ -68,10 +68,12 @@ function servicePage($API,$serviceID){
             $imageURL=$redPost['posts'][$s]['imageURL'];
             
         
-        echo"<div class='postTitle'><h2>$postTitel</h2></div>
-            <div class='text'>$postText</div>
+        echo"<div class='post'>
+            <div class='postTitle'><h2>$postTitel</h2></div>
             <img src='../img/360.jpg' class='img'>
-            <img src='../icon/25360.png' class='icon'>";
+            <div class='text'>$postText</div>
+            <img src='../icon/25360.png' class='icon'>
+            </div>";
            
          }
         }
