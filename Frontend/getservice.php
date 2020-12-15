@@ -55,8 +55,8 @@ function servicePage($API,$serviceID){
         
          $outpt = file_get_contents($ul);
          $redPost=json_decode($outpt,true);
-
         $cont=0;
+        if(!isset($redPost['message'])){
         foreach($redPost as $red){
             $cont +=count($red);
         }
@@ -66,24 +66,25 @@ function servicePage($API,$serviceID){
             $postTitel=$redPost['posts'][$s]['postTitle'];
             $postText=$redPost['posts'][$s]['pText'];
             $imageURL=$redPost['posts'][$s]['imageURL'];
-            if($s==0){
-                echo"<div class='post' style='font-weight:bold;'>
+            if($i==0 && $s==0){
+                echo"<div class='ingress' style='font-weight:bold;'>
                 <div class='postTitle'><h2>$postTitel</h2></div>
-                <img src='$imageURL' class='img'>
                 <div class='text'>$postText</div>
-                <img src='../icon/25360.png' class='icon'>
                 </div>";
             }else{
             echo"<div class='post'>
+                <div class='column'>
                 <div class='postTitle'><h2>$postTitel</h2></div>
+                <img src='../icon/25360.png' class='icon'>
                 <img src='$imageURL' class='img'>
                 <div class='text'>$postText</div>
-                <img src='../icon/25360.png' class='icon'>
+                </div>
                 </div>";
             }
            
          }
         }
+    }
         
         
      
