@@ -1,7 +1,7 @@
 <?php
 //session_start();
 //$API=$_SESSION['API'];
-$serviceID=2;
+$serviceID=1;
 $font="Arial,sans-serif";
 //$fontarr=array()
 $bold="bold";
@@ -21,7 +21,7 @@ if(isset($_POST['submit'])){
     $postTitle=$_POST['subtitle'];
     $postText=$_POST['subtext'];
     $image=$_FILES['image']['name'];
-    $pageID=2;
+    $pageID=7;
     $username="karl";
     $API="RRmjdNWZuAeDqhEPrCWT";
     
@@ -53,14 +53,7 @@ if ($uploadOk == 0) {
     }
 }
       
-
-    print_r($_FILES);
-    echo "<br>";
-    echo "image name <br>";
-    echo $image;
-    echo "<br>";
     $image=array("../img/".$image);
-    print_r($image);
     $count=0;
     foreach ($postTitle as $po) {
         $count++;
