@@ -74,10 +74,12 @@ function servicePage($API,$serviceID){
             }else{
             echo"<div class='post'>
                 <div class='column'>
-                <div class='postTitle'><h2>$postTitel</h2></div>
-                <img src='../icon/25360.png' class='icon'>
-                <img src='$imageURL' class='img'>
-                <div class='text'>$postText</div>
+                    <div class='postTitle'><h2>$postTitel</h2></div>
+                    <img src='../icon/25360.png' class='icon'>
+                    <img src='$imageURL' class='img'>
+                </div>
+                <div class='column'>
+                    <div class='text'>$postText</div>
                 </div>
                 </div>";
             }
