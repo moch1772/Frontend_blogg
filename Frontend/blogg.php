@@ -21,7 +21,8 @@ if(isset($_GET['service'])){
 //$pageTitle="nog";
 // sertchPage($API,$serviceID,$pageTitle);
     echo'<div class="content">
-    <div class="foreground">
+    <div class="background">
+        <div class="foreground">
             <div class="billboard"></div>
             <div class="title"><h1>';
             serviceTitle($API,$serviceID);
@@ -40,16 +41,16 @@ if(isset($_GET['service'])){
                 </div>
             </a>
             <div class="msearch">
-                    <form action="search.php" method="POST">
-                        <input type="text" id="search" name="search" placeholder="Search"></form>
-                    </form>
+                <form action="search.php" method="POST">
+                    <input type="text" id="search" name="search" placeholder="Search"></form>
+                </form>
             </div>
         </div>
+        <div class="background2">
     <?php
 
         servicePage($API,$serviceID);
-        echo'</div></div>';
+        echo'</div></div></div></div>';
     ?>
-   
 </body>
 </html>

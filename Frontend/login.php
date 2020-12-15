@@ -18,7 +18,7 @@ if (isset($_POST['submit'])) {
         $_SESSION['username']=$username;
         $_SESSION['password']=$password;
 
-        header("location:blogg.php");
+        header("location:home.php");
     }
 }
 
