@@ -1,7 +1,8 @@
 <?php
 //session_start();
 //$API=$_SESSION['API'];
-$serviceID=2;
+//$username=$_SESSION['username'];
+$serviceID=1;
 $font="Arial,sans-serif";
 //$fontarr=array()
 $bold="bold";
@@ -10,7 +11,9 @@ $bold="bold";
     echo"<form action='createinlegg.php' method='post' enctype='multipart/form-data'>
 
 <input type='hidden' name='font' value='$font'>
+<input type='text' name='postTitle'>
 <input type='button' value='add text box' onclick='newpost(pp)'>
+
 <div id='pp'>
 <input type='file' name='image' accept='image/x-png,image/gif,image/jpeg'><input type='text' name='subtitle[]'><input type='text' name='subtext[]'>
 </div>
@@ -21,7 +24,8 @@ if(isset($_POST['submit'])){
     $postTitle=$_POST['subtitle'];
     $postText=$_POST['subtext'];
     $image=$_FILES['image']['name'];
-    $pageID=2;
+    $metaTag="blogg";
+    $pageTitle="smothe";
     $username="karl";
     $API="RRmjdNWZuAeDqhEPrCWT";
     
@@ -66,8 +70,8 @@ if ($uploadOk == 0) {
         $count++;
     }
     $ch=curl_init();
-    $arr=json_encode(array("API"=>$API,"serviceID"=>$serviceID));
-    $url="http://wider.ntigskovde.se/api/pages/create_page.php";
+    $arr=json_encode(array("serviceID"=>$serviceID,"metaTag"=>$metaTag,"pageTitle"=>$pageTitle));
+    $url="http://wider.ntigskovde.se/api/pages/create_page.php?API=$API";
     curl_setopt($ch, CURLOPT_URL, $url);
 
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -93,7 +97,7 @@ if ($uploadOk == 0) {
 
     $output = curl_exec($ch);
     echo $output;
-       }    
+       }   
 }
 
 
