@@ -1,5 +1,6 @@
 <?php
 session_start();
+include_once "getservice.php";
 $API=$_SESSION['API'];
 //hämtar service ID and puts it in an array
 if(isset($_POST['search'])){
@@ -94,7 +95,16 @@ if(isset($_POST['search'])){
     }
     
     $printArray = array_unique($printArray);
-    //print_r($printArray);
+    $printArray = array_values($printArray);
+    
+    for($i=0;$i<count($printArray);$i++)
+    {
+        if($printArray[$i]!="P"){
+            if(!checkType($API,$printArray[$i])){
+                unset($printArray[$i]);
+            }
+    }
+    }
 }
 
 ?>
@@ -108,7 +118,7 @@ if(isset($_POST['search'])){
 </head>
 <body>
 <?php
-include "getservice.php";
+//include "getservice.php";
 //$pageTitle="nog";
 //sertchPage($API,$serviceID,$pageTitle);
     echo'<div class="content">
