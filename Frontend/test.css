@@ -107,6 +107,15 @@
     height:20%;
     border: 1px solid rgb(37, 115, 141);;
 }
+.middleBox{
+    width:100%;
+    height:20%;
+    border: 1px solid rgb(37, 115, 141);;
+}
+.middleBoxTitle{
+    font-size:large;
+    float:left;
+}
 
 .link{
     text-decoration: none;

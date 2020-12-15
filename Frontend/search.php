@@ -42,7 +42,9 @@ if(isset($_POST['search'])){
             //print_r($printArray);
         
     }
+    array_push($printArray,'P');
     $sID = array_unique($sID);
+    $sID = array_values($sID);
     for($i=0;$i<count($sID);$i++){
         $url= "http://wider.ntigskovde.se/api/pages/read_page_service.php?API=$API&serviceID=".$sID[$i];
             $service=file_get_contents($url);
@@ -69,18 +71,25 @@ if(isset($_POST['search'])){
     }
     foreach($pages as $pagePost){
         $url= "http://wider.ntigskovde.se/api/pages/read_post_page.php?API=$API&pageID=".$pagePost[0];
-            $service=file_get_contents($url);
+            $services=file_get_contents($url);
             curl_setopt($ch, CURLOPT_URL, $url);
 
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-            $service = curl_exec($ch);
-            $service= json_decode($service,true);
-            if(isset($service['posts'])){
-                if(isset($service['posts'][0]['postTitle']) || isset($service['posts'][0]['pText'])){
-                    if (stripos($service['posts'][0]['postTitle'], $search) !== false || stripos($service['posts'][0]['pText'], $search) !== false) {
-                        array_push($printArray,$pagePost[1]);
+            $services = curl_exec($ch);
+            $services= json_decode($services,true);
+            /*print_r($services['posts']);
+            echo "<br>";
+            echo "<br>";*/
+            foreach($services as $service){
+                if(gettype($service)=="array"){
+                    foreach($service as $post){
+                    if(isset($post['postTitle']) || isset($post['pText'])){
+                        if (stripos($post['postTitle'], $search) !== false || stripos($post['pText'], $search) !== false) {
+                            array_push($printArray,$pagePost[1]);
+                        }
                     }
                 }
+            }
             }
     }
     
@@ -127,7 +136,29 @@ include "getservice.php";
             </div>
         </div>
             ';
+            echo'
+                <div class="middleBox">
+            <div class="middleBoxTitle">
+                    Bloggs with '.$search.' in the name   
+                </div>
+                </div>
+                <br>
+                <br>
+                <br>';
         foreach($printArray as $serviceID){
+            if($serviceID=="P"){
+                echo'
+                <div class="middleBox">
+            <div class="middleBoxTitle">
+                    Bloggs that talk about '.$search.'   
+                </div>
+                </div>
+                <br>
+                <br>
+                <br>
+                ';
+            }
+            if($serviceID!="P"){
             $url= "http://wider.ntigskovde.se/api/pages/read_single_service.php?API=$API&serviceID=".$serviceID;
             curl_setopt($ch, CURLOPT_URL, $url);
 
@@ -149,11 +180,11 @@ include "getservice.php";
                 <div class="searchText">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 </div>';
-            //print_r($service);
             echo "</div>
             </a>
             <br>";
-        }        
+        } 
+    }       
     ?>
    
 </body>
