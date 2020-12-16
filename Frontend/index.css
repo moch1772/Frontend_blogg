@@ -127,7 +127,7 @@
 }
 .column{
     width:48%; 
-    margin-top: 10%;
+    margin-top: 30%;
     margin-left: 10%;
     display: block;
     float: left;
@@ -179,7 +179,7 @@
 .post3 .column .text{
     width:165%;
     margin-left: 0%;
-    margin-top:-20%;
+    margin-top:0%;
 }
 .post4 .column .text{
     width:200%;
