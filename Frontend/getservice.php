@@ -72,16 +72,53 @@ function servicePage($API,$serviceID){
                 <div class='text'>$postText</div>
                 </div>";
             }else{
-            echo"<div class='post'>
+                if(stripos($imageURL,"../img/left/")!==false){
+                echo"<div class='post'>
                 <div class='column'>
+                <div class='postTitle'><h2>$postTitel</h2></div>
+                <img src='../icon/25360.png' class='icon'>
+                <img src='$imageURL' class='img'>
+                <div class='text'>$postText</div>
+                </div>
+                </div>";}
+                elseif(stripos($imageURL,"../img/right/")!==false){
+                    echo"<div class='post2'>
+                    <div class='column'>
                     <div class='postTitle'><h2>$postTitel</h2></div>
                     <img src='../icon/25360.png' class='icon'>
                     <img src='$imageURL' class='img'>
-                </div>
-                <div class='column'>
                     <div class='text'>$postText</div>
-                </div>
-                </div>";
+                    </div>
+                    </div>";
+                }
+                elseif(stripos($imageURL,"../img/left")!==false){
+                    echo"<div class='post3'>
+                    <div class='column'>
+                    <div class='postTitle'><h2>$postTitel</h2></div>
+                    <img src='../icon/25360.png' class='icon'>
+                    <div class='text'>$postText</div>
+                    </div>
+                    </div>";
+                }
+                elseif(stripos($imageURL,"../img/right")!==false){
+                    echo"<div class='post4'>
+                    <div class='column'>
+                    <div class='postTitle'><h2>$postTitel</h2></div>
+                    <img src='../icon/25360.png' class='icon'>
+                    <div class='text'>$postText</div>
+                    </div>
+                    </div>";
+                }
+                else{
+                    echo"<div class='post'>
+                    <div class='column'>
+                    <div class='postTitle'><h2>$postTitel</h2></div>
+                    <img src='../icon/25360.png' class='icon'>
+                    <img src='$imageURL' class='img'>
+                    <div class='text'>$postText</div>
+                    </div>
+                    </div>";
+                }
             }
            
          }
