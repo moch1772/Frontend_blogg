@@ -127,7 +127,7 @@
 }
 .column{
     width:48%; 
-    margin-top: 30%;
+    margin-top: 10%;
     margin-left: 10%;
     display: block;
     float: left;
@@ -145,7 +145,7 @@
 .icon{
     display: block;
     margin-top:0.5%;
-    width:3%;
+    width:4%;
 }
 .post2 .column .icon{
     margin-left:44%;
@@ -168,6 +168,7 @@
 .text{
     width:100%;
     margin-left: 70%;
+    margin-top:-30%;
     color:white;
 }
 .post2 .column .text{

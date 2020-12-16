@@ -74,10 +74,12 @@ function servicePage($API,$serviceID){
             }else{
             echo"<div class='post'>
                 <div class='column'>
-                <div class='postTitle'><h2>$postTitel</h2></div>
-                <img src='../icon/25360.png' class='icon'>
-                <img src='$imageURL' class='img'>
-                <div class='text'>$postText</div>
+                    <div class='postTitle'><h2>$postTitel</h2></div>
+                    <img src='../icon/25360.png' class='icon'>
+                    <img src='$imageURL' class='img'>
+                </div>
+                <div class='column'>
+                    <div class='text'>$postText</div>
                 </div>
                 </div>";
             }
@@ -124,6 +126,25 @@ function servicePage($API,$serviceID){
     $output = curl_exec($ch);
 
      return $output;
+    }
+    function checkType($API,$serviceID)
+    {   $ch=curl_init();
+        
+        $url= "http://wider.ntigskovde.se/api/pages/read_single_service.php?API=$API&serviceID=".$serviceID;
+        $service=file_get_contents($url);
+        curl_setopt($ch, CURLOPT_URL, $url);
+
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            
+        $service = curl_exec($ch);
+        $service = ltrim($service, ',');
+        $service=json_decode($service,true);
+        if($service['serviceType']==1)
+        {
+            return true;
+        }else{
+            return false;
+        }
     }
     /*function sertchPage($API,$serviceID,$pageTitle){
         //$url = "http://sko.te4-ntig.se/wider/api/pages/read_page_service.php?API=$API&serviceID=$serviceID";
