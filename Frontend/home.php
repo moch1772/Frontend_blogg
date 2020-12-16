@@ -1,6 +1,7 @@
 <?php
 session_start();
 $API=$_SESSION['API'];
+include "getservice.php"
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,12 +27,14 @@ $API=$_SESSION['API'];
     for ($i=0; $i < $count; $i++) { 
         
     $serv=$redservis['data'][$i]['serviceID'];
+
     if ($serv==$redservis['data'][0]['serviceID'] && $i>=1) {
     break;
     }
-    
-    echo "<a href='http://localhost:8080/t4/bull/kalender/Frontend_blogg/Frontend/blogg.php?service=$serv'><input type='button' value='$serv'></a>";
-    }
+    if(checkType($API,$serv)==true){
+    $servTitle=serviceTitle($API,$serv);
+    echo "<a href='http://localhost:8080/t4/bull/kalender/Frontend_blogg/Frontend/blogg.php?service=$serv'><input type='button' value='$servTitle'></a>";
+    }}
     ?>
 </body>
 </html>
