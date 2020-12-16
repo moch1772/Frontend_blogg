@@ -10,6 +10,8 @@
 <body>
 <?php
 session_start();
+$name="hugo";
+//$_SESSION['username'];
 include "getservice.php";
 
 $API=$_SESSION['API'];
@@ -49,7 +51,7 @@ if(isset($_GET['service'])){
         <div class="background2">
     <?php
 
-        servicePage($API,$serviceID);
+        servicePage($API,$serviceID,$name);
         echo'</div></div></div></div>';
     ?>
 </body>

@@ -26,7 +26,7 @@ function timeout($output){
         header("location:login.php");
     }
 }
-function servicePage($API,$serviceID){
+function servicePage($API,$serviceID,$name){
    
     //sends reqest via url
 //$url = "http://sko.te4-ntig.se/wider/api/pages/read_page_service.php?API=$API&serviceID=$serviceID";
@@ -48,6 +48,7 @@ function servicePage($API,$serviceID){
     
      for ($i=0; $i < $count; $i++) { 
          $pageID=$tt['pages'][$i]['pageID'];
+         $meta=$tt['pages'][$i]['metaTag'];
          // $pageTitle=$tt['pages'][$i]['pageTitle'];
          
          //$ul = "http://sko.te4-ntig.se/wider/api/pages/read_post_page.php?API=$API&pageID=$pageID"; 
@@ -65,6 +66,7 @@ function servicePage($API,$serviceID){
             $postID=$redPost['posts'][$s]['postID'];
             $postTitel=$redPost['posts'][$s]['postTitle'];
             $postText=$redPost['posts'][$s]['pText'];
+            $username=$redPost['posts'][$s]['username'];
             $imageURL=$redPost['posts'][$s]['imageURL'];
             if($i==0 && $s==0){
                 echo"<div class='ingress' style='font-weight:bold;'>
@@ -122,6 +124,14 @@ function servicePage($API,$serviceID){
             }
            
          }
+         if($meta==$name){
+            echo '<form method="post">
+            <input type="submit" name="delete" id="delete" value="ok">
+            </form>';
+            if(array_key_exists('delete',$_POST)){
+                deletePage($API,$pageID);
+             }
+        }
         }
     }
         
@@ -182,6 +192,21 @@ function servicePage($API,$serviceID){
         }else{
             return false;
         }
+    }
+    function deletePage($API,$pageID){
+        
+        $ch=curl_init();
+        $arry=json_encode(array("pageID"=>$pageID));
+        $url="http://wider.ntigskovde.se/api/pages/delete_page.php?API=$API";
+        
+        curl_setopt($ch, CURLOPT_URL, $url);
+
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $arry);
+
+    $output = curl_exec($ch);
     }
     /*function sertchPage($API,$serviceID,$pageTitle){
         //$url = "http://sko.te4-ntig.se/wider/api/pages/read_page_service.php?API=$API&serviceID=$serviceID";
