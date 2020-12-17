@@ -90,6 +90,44 @@
     padding-left:7%;
     margin-top:4%;
 }
+
+
+.link{
+    text-decoration: none;
+}
+
+.searchBox{
+    width:100%;
+    height:20vh;
+    border: 1px solid rgb(37, 115, 141);
+    color:black;
+}
+.searchBox:hover{
+    cursor: pointer;
+}
+.searchTitle{
+    font-size:250%;
+    font-weight: bold;
+    float:left;
+}
+.searchDate{
+    float:right;
+    margin-right:1%;
+}
+.searchText{
+    color:grey;
+    margin-top:5%;
+}
+.middleBox{
+    width:100%;
+    height:20%;
+    border: 1px solid rgb(37, 115, 141);;
+}
+.middleBoxTitle{
+    font-size:large;
+    float:left;
+}
+
 .background2{
     overflow-x: hidden;
     overflow-y: none;
