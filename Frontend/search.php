@@ -12,11 +12,8 @@ if(isset($_POST['search'])){
     $counter=0;
     $sID=array();
     $printArray=array();
-/*    print_r($tttt);
-    echo "<br>";*/
+
     foreach($tttt['data'] as $tt){
-        //print_r($tt);
-        //echo "<br>";
         $counter++;
     }
     //print_r($tttt['data'][0]);
@@ -103,7 +100,13 @@ if(isset($_POST['search'])){
             if(!checkType($API,$printArray[$i])){
                 unset($printArray[$i]);
             }
+        }
     }
+    if(count($printArray)==1){
+        $printArray=array("S");
+    }
+    if($printArray[count($printArray)-1]=="P"){
+        array_pop($printArray);
     }
 }
 
@@ -113,7 +116,7 @@ if(isset($_POST['search'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="test.css">
+    <link rel="stylesheet" href="index.css">
     <title>Document</title>
 </head>
 <body>
@@ -146,15 +149,17 @@ if(isset($_POST['search'])){
             </div>
         </div>
             ';
+        if(count($printArray)>1 && $printArray[0]!="P"){
             echo'
                 <div class="middleBox">
-            <div class="middleBoxTitle">
-                    Bloggs with '.$search.' in the name   
+                <div class="middleBoxTitle">
+                Bloggs with '.$search.' in the name   
                 </div>
                 </div>
                 <br>
                 <br>
                 <br>';
+        }
         foreach($printArray as $serviceID){
             if($serviceID=="P"){
                 echo'
@@ -168,33 +173,46 @@ if(isset($_POST['search'])){
                 <br>
                 ';
             }
-            if($serviceID!="P"){
-            $url= "http://wider.ntigskovde.se/api/pages/read_single_service.php?API=$API&serviceID=".$serviceID;
-            curl_setopt($ch, CURLOPT_URL, $url);
+            if($serviceID!="P" && $serviceID!="S"){
+                $url= "http://wider.ntigskovde.se/api/pages/read_single_service.php?API=$API&serviceID=".$serviceID;
+                curl_setopt($ch, CURLOPT_URL, $url);
 
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-            
-            $service = curl_exec($ch);
-            $service = ltrim($service, ',');
-            $service=json_decode($service,true);   
-            echo'<a class="link" href="blogg.php?service='.$serviceID.'">
-            <div class="searchBox">
-            <div class="searchTitle">'.
-                    $service["serviceTitle"]   
-                .'</div>
-                <div class="searchDate">
-                '.
-                $service["serviceDate"]   
-                .'
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+                
+                $service = curl_exec($ch);
+                $service = ltrim($service, ',');
+                $service=json_decode($service,true);   
+                echo'<a class="link" href="blogg.php?service='.$serviceID.'">
+                <div class="searchBox">
+                <div class="searchTitle">'.
+                        $service["serviceTitle"]   
+                    .'</div>
+                    <div class="searchDate">
+                    '.
+                    $service["serviceDate"]   
+                    .'
+                    </div>
+                    <div class="searchText">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </div>';
+                echo "</div>
+                </a>
+                <br>";
+            }
+            if($serviceID=="S"){
+                echo'
+                <div class="middleBox">
+                <div class="middleBoxTitle">
+                    There is no blogg that is named or talks about '.$search.'   
                 </div>
-                <div class="searchText">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </div>';
-            echo "</div>
-            </a>
-            <br>";
-        } 
-    }       
+                </div>
+                <br>
+                <br>
+                <br>
+                ';         
+            } 
+    }
+       
     ?>
    
 </body>
