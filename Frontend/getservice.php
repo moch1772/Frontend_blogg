@@ -18,7 +18,9 @@ function serviceTitle($API,$serviceID){
     $p=$s-$d;
     
     $serTitle=substr($output,$d,$p);
-    echo$serTitle;
+    if(isset($serTitle)){
+        return $serTitle;
+    }
     
 }
 function timeout($output){
