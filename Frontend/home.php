@@ -39,7 +39,7 @@ include "getservice.php"
                     if(checkType($API,$serv)==true){
                     $servTitle=serviceTitle($API,$serv);
 
-                    echo "<form action='http://localhost:8080/t4/bull/kalender/Frontend_blogg/Frontend/blogg.php?service=$serv' method='post'>
+                    echo "<form action='blogg.php?service=$serv' method='post'>
                             <button class='button'>$servTitle</button>
                         </form>";
                     }}
