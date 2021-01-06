@@ -14,8 +14,25 @@ include "getservice.php"
 <body>
     <div class="content">
         <div class="background">
-            <div class='foreground'>
-                <div class='box'>
+            <div class='foreground'></div>
+                    <div class="menu">
+                    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstleyVEVO" class="mLButton">
+                        <div class="mText">
+                            Home
+                        </div>
+                    </a>
+                    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstleyVEVO" class="mRButton">
+                        <div class="mText">
+                            Profile
+                        </div>
+                    </a>
+                    <div class="msearch">
+                        <form action="search.php" method="POST">
+                            <input type="text" id="search" name="search" placeholder="Search"></form>
+                        </form>
+                    </div>
+                </div>
+            <div class='box'>
                     <?php
                     echo'<form action="blogg.php" method="get">
                     
@@ -45,7 +62,6 @@ include "getservice.php"
                     }}
                     ?>
                     <div class="hidden"></div>
-                </div>
             </div>
         </div>
     </div>
