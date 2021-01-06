@@ -18,7 +18,7 @@ function serviceTitle($API,$serviceID){
     $p=$s-$d;
     
     $serTitle=substr($output,$d,$p);
-    echo$serTitle;
+    return $serTitle;
     
 }
 function timeout($output){
@@ -126,7 +126,7 @@ function servicePage($API,$serviceID,$name){
          }
          if($meta==$name){
             echo '<form method="post">
-            <input type="submit" name="delete" id="delete" value="ok">
+            <input type="submit" name="delete" id="delete" value="delete">
             </form>';
             if(array_key_exists('delete',$_POST)){
                 deletePage($API,$pageID);
@@ -208,6 +208,24 @@ function servicePage($API,$serviceID,$name){
 
     $output = curl_exec($ch);
     }
+    function cretPost($API,$count,$image,$postText,$postTitle,$pageID,$username){
+        $ch=curl_init();
+        for ($i=0; $i < $count; $i++) { 
+     
+     $arry=json_encode(array("imageURL"=>$image[$i],"pText"=>$postText[$i],"postTitle"=>$postTitle[$i],"pageID"=>$pageID,"username"=>$username));
+         $url="http://wider.ntigskovde.se/api/pages/create_post.php?API=$API";
+         
+         curl_setopt($ch, CURLOPT_URL, $url);
+ 
+     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+ 
+     curl_setopt($ch, CURLOPT_POST, 1);
+ 
+     curl_setopt($ch, CURLOPT_POSTFIELDS, $arry);
+ 
+     $output = curl_exec($ch);
+        }
+        }
     /*function sertchPage($API,$serviceID,$pageTitle){
         //$url = "http://sko.te4-ntig.se/wider/api/pages/read_page_service.php?API=$API&serviceID=$serviceID";
         $url = "http://wider.ntigskovde.se/api/pages/read_page_service.php?API=$API&serviceID=$serviceID";
