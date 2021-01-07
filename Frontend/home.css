@@ -88,7 +88,7 @@ body{
     margin-top:0.17%;
     margin-left: auto;
     margin-right: auto;
-    background-color: rgb(43, 117, 151);
+    background: linear-gradient(rgb(67, 97, 231), rgb(20, 21, 77));
     overflow-x:hidden;
 }
 .button{
