@@ -45,21 +45,24 @@ include "getservice.php"
                     foreach($redservis as $t){
                         $count +=count($t);
                     }
-                    
+
+                    $serv=array();
                     for ($i=0; $i < $count; $i++) { 
                         
-                    $serv=$redservis['data'][$i]['serviceID'];
-
-                    if ($serv==$redservis['data'][0]['serviceID'] && $i>=1) {
-                    break;
+                    //$serv=$redservis['data'][$i]['serviceID'];
+                    
+                    if($redservis['data'][$i]['serviceType']==1){
+                        array_push($serv,$redservis['data'][$i]['serviceID']);
                     }
-                    if(checkType($API,$serv)==true){
-                    $servTitle=serviceTitle($API,$serv);
+                }
+                $serv=array_unique($serv);
+                foreach($serv as $i){
+                    $servTitle=serviceTitle($API,$i);
 
-                    echo "<form action='blogg.php?service=$serv' method='post'>
+                    echo "<form action='blogg.php?service=$i' method='post'>
                             <button class='button'>$servTitle</button>
                         </form>";
-                    }}
+                }
                     ?>
                     <div class="hidden"></div>
             </div>
