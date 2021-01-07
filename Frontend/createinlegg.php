@@ -10,6 +10,7 @@
 include "getservice.php";
 //session_start();
 //$API=$_SESSION['API'];
+//$userID=$_SESSION['userID'];
 //$username=$_SESSION['username'];
 $serviceID=1;
 $font="Arial,sans-serif";
@@ -43,7 +44,7 @@ $bold="bold";
 if(isset($_POST['submit'])){
     $postTitle=$_POST['subtitle'];
     $postText=$_POST['subtext'];
-    $metaTag="hugo";//$username;
+    $metaTag=generateRandomString();
     $pageTitle="smothe";
     $style=$_POST['picControl'];
 
@@ -140,7 +141,15 @@ if(isset($_POST['submit'])){
     cretPost($API,$count,$image,$postText,$postTitle,$pageID,$username);
        }   
 
-
+       function generateRandomString($length = 10) {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return $randomString;
+    }
 
 ?>
 <script type="text/JavaScript">

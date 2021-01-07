@@ -53,8 +53,8 @@ function servicePage($API,$serviceID,$name){
     }}
     
      for ($i=0; $i < $count; $i++) { 
-         $pageID=$tt['pages'][$i]['pageID'];
-         $meta=$tt['pages'][$i]['metaTag'];
+         echo $pageID=$tt['pages'][$i]['pageID'];
+         
          // $pageTitle=$tt['pages'][$i]['pageTitle'];
          
          //$ul = "http://sko.te4-ntig.se/wider/api/pages/read_post_page.php?API=$API&pageID=$pageID"; 
@@ -128,14 +128,15 @@ function servicePage($API,$serviceID,$name){
                     </div>";
                 }
             }
-           
+            
          }
-         if($meta==$name){
-            echo '<form method="post">
-            <input type="submit" name="delete" id="delete" value="delete">
-            </form>';
-            if(array_key_exists('delete',$_POST)){
-                deletePage($API,$pageID);
+         if($username==$name){
+         
+            echo "<form action='blogg.php?service=$serviceID' method='post'>
+            <input type='submit' name='del' value='$pageID' placeholder='delete'>
+            </form>";
+            if(isset($_POST['del'])){
+                deletePage($API,$_POST['del']);
              }
         }
         }
@@ -231,6 +232,15 @@ function servicePage($API,$serviceID,$name){
  
      $output = curl_exec($ch);
         }
+        }
+        // reads all users
+        function getuserID($API){
+            $url = "http://wider.ntigskovde.se/api/user/read_user.php?API=$API";
+        
+$output = file_get_contents($url);
+$redUser=json_decode($output,true);
+
+return $redUser[''];
         }
     /*function sertchPage($API,$serviceID,$pageTitle){
         //$url = "http://sko.te4-ntig.se/wider/api/pages/read_page_service.php?API=$API&serviceID=$serviceID";
