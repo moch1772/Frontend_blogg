@@ -1,27 +1,48 @@
-<?php
-session_start();
-include "getservice.php";
-echo'<form action="login.php" method="post">
-<input type="text" name="username" required>
-<input type="password" name="paword" required>
-<input type="submit" name="submit" value="login">
-</form>';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+    <title>Document</title>
+</head>
+<body>
 
-if (isset($_POST['submit'])) {
-    $username=$_POST['username'];
-    $password=$_POST['paword'];
-    $API=logIn($username,$password); 
-    if($API=="nono"){
-        echo $API;
-    }else {
-        $_SESSION['API']=$API;
-        $_SESSION['username']=$username;
-        $_SESSION['password']=$password;
+    <?php
+    session_start();
+    include "getservice.php";
+    echo'<div class="content"> 
+            <div class="foreground">
+                <div class="text">Vänligen skriv in ditt användarnamn och lösenord i rutorna nedanför</div>
+                <div class="box">
+                    <div class="hidden"></div>
+                    <form class="form" action="login.php" method="post">
+                        <input class="input" type="text" name="username" placeholder="Användarnamn" required>
+                        <input class="input" type="password" name="paword" placeholder="Lösenord"  required>
+                        <input class="button" type="submit" name="submit" value="Logga in">
+                    </form>
+                </div>
+            </div>
+        </div>';
 
-        header("location:home.php");
+    if (isset($_POST['submit'])) {
+        $username=$_POST['username'];
+        $password=$_POST['paword'];
+        $API=logIn($username,$password); 
+        if($API=="nono"){
+            echo $API;
+        }else {
+            $_SESSION['API']=$API;
+            $_SESSION['username']=$username;
+            $_SESSION['password']=$password;
+
+            header("location:home.php");
+        }
     }
-}
 
 
 
-?>
+    ?>
+
+</body>
+</html>
