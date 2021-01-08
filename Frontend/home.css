@@ -96,14 +96,14 @@ body{
     height:5vh;
     margin-left:20%;
     margin-top:10%;
-    transition: box-shadow 0.8s ease;
+    transition:1s ease;
     background: linear-gradient(rgb(144, 180, 247), rgb(144, 180, 247));
 }
 .button:hover{
     cursor: pointer;
     background:linear-gradient(20deg, rgb(44, 87, 167) 1%,rgb(144, 180, 247) 40%, white 100%);
     box-shadow: 0.5px 0.5px 6px 0px;
-}
+}   
 .hidden{
     height:5%;
 }
