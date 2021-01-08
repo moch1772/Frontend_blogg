@@ -16,7 +16,7 @@ $serviceID=1;
 $font="Arial,sans-serif";
 //$fontarr=array()
 $bold="bold";
-
+timeout($output);
   
     echo"<form action='createinlegg.php' method='post' enctype='multipart/form-data'>
 

@@ -234,14 +234,30 @@ function servicePage($API,$serviceID,$name){
         }
         }
         // reads all users
-        function getuserID($API){
+        function getuserID($API,$username){
             $url = "http://wider.ntigskovde.se/api/user/read_user.php?API=$API";
         
 $output = file_get_contents($url);
 $redUser=json_decode($output,true);
-
-return $redUser[''];
+$count=countt($redUser);
+for ($i=0; $i <$count ; $i++) { 
+    $userID=$redUser['data'][$i]['userID'];
+    $uname=$redUser['data'][$i]['username'];
+    if ($uname==$username) {
+    return $userID;
+    break;
+    }
+}
         }
+function countt($jcode){
+    $count=0;
+foreach($jcode as $j){
+   $count +=count($j);
+}
+return $count;
+}
+
+        
     /*function sertchPage($API,$serviceID,$pageTitle){
         //$url = "http://sko.te4-ntig.se/wider/api/pages/read_page_service.php?API=$API&serviceID=$serviceID";
         $url = "http://wider.ntigskovde.se/api/pages/read_page_service.php?API=$API&serviceID=$serviceID";

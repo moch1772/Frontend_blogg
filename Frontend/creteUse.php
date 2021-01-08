@@ -1,4 +1,5 @@
 <?php
+include "getservice.php";
 echo"<form action='creteUse.php' method='post'>
 <input type='text' name='username' placeholder='username' required>
 <input type='password' name='password' placeholder='password' required>
@@ -7,6 +8,7 @@ echo"<form action='creteUse.php' method='post'>
 <input type='text' name='lastN' placeholder='lastname' required>
 <input type='submit' name='submit' value='submit'>
 </form>";
+
 $userID=17;
 $API="RRmjdNWZuAeDqhEPrCWT";
 if (isset($_POST['submit'])){
@@ -29,6 +31,7 @@ curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $arry);
 
 $output = curl_exec($ch);
+timeout($output);
 }
 $url = "http://wider.ntigskovde.se/api/user/read_user.php?API=$API";
         
