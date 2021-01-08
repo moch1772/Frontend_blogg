@@ -16,6 +16,7 @@ $url = "http://wider.ntigskovde.se/api/pages/read_post_page.php?API=$API&pageID=
 $outupt = file_get_contents($url);
 $redPost=json_decode($outupt,true);
 var_dump($redPost);
+timeout($redPost);
 
 if(isset($redPost['message'])){
     //header('location:index.php');
@@ -80,7 +81,7 @@ curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $arry);
 
 $output = curl_exec($ch);
-
+timeout($output);
 }
 
 function deltallPost($API,$count,$postID){
@@ -98,6 +99,7 @@ curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $arry);
 
 $output = curl_exec($ch);
+timeout($output);
     }
 }
 ?>

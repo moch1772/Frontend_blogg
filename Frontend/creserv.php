@@ -1,5 +1,5 @@
 <?php
-
+include "getservice.php";
 $API="RRmjdNWZuAeDqhEPrCWT";
 echo'<form action="creserv.php" method="post">
 <input type="text" name="serviceTitle" requierd>
@@ -9,6 +9,7 @@ echo'<form action="creserv.php" method="post">
 <input type="radio" name="publish" value="0" placeholder="public">
 <input type="submit" name="submit">
 </form>';
+
 if (isset($_POST['submit'])) {
     $userID=$_POST['userID'];
     $serviceTitle=$_POST['serviceTitle'];
@@ -26,6 +27,7 @@ if (isset($_POST['submit'])) {
     curl_setopt($ch, CURLOPT_POSTFIELDS, $arr);
 
     $output = curl_exec($ch);
+    timeout($output);
     echo$output;
 }
 ?>
