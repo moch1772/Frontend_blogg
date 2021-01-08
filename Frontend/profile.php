@@ -35,7 +35,7 @@
 
                     echo '<div class="profile">
                         <div class="name">Username</div>
-                        </div class="password">password *******</div>
+                        <div class="password">Password *******</div>
                     </div>';
 
                 ?>
