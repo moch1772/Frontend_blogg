@@ -8,15 +8,19 @@
 <body>
 <?php
 include "getservice.php";
-//session_start();
+session_start();
 //$API=$_SESSION['API'];
 //$userID=$_SESSION['userID'];
 //$username=$_SESSION['username'];
-$serviceID=1;
+if(isset($_GET['service'])){
+    $serviceID=$_GET['service'];
+    }else{
+        header('location:index.php');
+    }
 $font="Arial,sans-serif";
 //$fontarr=array()
 $bold="bold";
-timeout($output);
+
   
     echo"<form action='createinlegg.php' method='post' enctype='multipart/form-data'>
 
@@ -119,6 +123,7 @@ if(isset($_POST['submit'])){
 
     $output = curl_exec($ch);
     echo $output;
+    timeout($output);
     $url= "http://wider.ntigskovde.se/api/pages/read_page_service.php?API=$API&serviceID=$serviceID";
     $output = file_get_contents($url);
     $tt=json_decode($output,true);
