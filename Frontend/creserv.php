@@ -2,16 +2,14 @@
 include "getservice.php";
 session_start();
 $API=$_SESSION['API'];
-if(isset($_GET['service'])){
-    $serviceID=$_GET['service'];
-    }else{
-        header('location:index.php');
-    }
+
 echo'<form action="creserv.php" method="post">
 <input type="text" name="serviceTitle" requierd>
 <input type="hidden" name="serviceType" value="1">
 <input type="hidden" name="userID" value="1">
+<label for="publish">Publish:</label> 
 <input type="radio" name="publish" value="1" placeholder="privet">
+<label for="publish">Don´t publish:</label>
 <input type="radio" name="publish" value="0" placeholder="public">
 <input type="submit" name="submit">
 </form>';
