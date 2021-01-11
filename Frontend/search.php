@@ -2,6 +2,7 @@
 session_start();
 include_once "getservice.php";
 $API=$_SESSION['API'];
+
 //hämtar service ID and puts it in an array
 if(isset($_POST['search'])){
     $pages=array();

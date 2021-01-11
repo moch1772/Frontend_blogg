@@ -27,7 +27,7 @@ if(isset($_GET['service'])){
         <div class="foreground">
             <div class="billboard"></div>
             <div class="title"><h1>';
-            serviceTitle($API,$serviceID);
+            echo serviceTitle($API,$serviceID);
             echo'</h1></div>';
             ?>
             

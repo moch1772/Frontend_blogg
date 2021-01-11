@@ -1,14 +1,19 @@
 <?php
+include "getservice.php";
+session_start();
+$API=$_SESSION['API'];
 
-$API="RRmjdNWZuAeDqhEPrCWT";
 echo'<form action="creserv.php" method="post">
 <input type="text" name="serviceTitle" requierd>
 <input type="hidden" name="serviceType" value="1">
 <input type="hidden" name="userID" value="1">
+<label for="publish">Publish:</label> 
 <input type="radio" name="publish" value="1" placeholder="privet">
+<label for="publish">Don´t publish:</label>
 <input type="radio" name="publish" value="0" placeholder="public">
 <input type="submit" name="submit">
 </form>';
+
 if (isset($_POST['submit'])) {
     $userID=$_POST['userID'];
     $serviceTitle=$_POST['serviceTitle'];
@@ -26,6 +31,7 @@ if (isset($_POST['submit'])) {
     curl_setopt($ch, CURLOPT_POSTFIELDS, $arr);
 
     $output = curl_exec($ch);
+    timeout($output);
     echo$output;
 }
 ?>
