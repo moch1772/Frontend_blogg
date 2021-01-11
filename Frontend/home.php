@@ -1,7 +1,13 @@
 <?php
 session_start();
 $API=$_SESSION['API'];
-include "getservice.php"
+if(isset($_GET['service'])){
+    $serviceID=$_GET['service'];
+    }else{
+        header('location:index.php');
+    }
+    
+    include "getservice.php"
 ?>
 <!DOCTYPE html>
 <html lang="en">

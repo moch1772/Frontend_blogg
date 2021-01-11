@@ -53,7 +53,7 @@ function servicePage($API,$serviceID,$name){
     }}
     
      for ($i=0; $i < $count; $i++) { 
-         echo $pageID=$tt['pages'][$i]['pageID'];
+         $pageID=$tt['pages'][$i]['pageID'];
          
          // $pageTitle=$tt['pages'][$i]['pageTitle'];
          
