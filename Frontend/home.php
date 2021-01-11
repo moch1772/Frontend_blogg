@@ -22,6 +22,11 @@ $API=$_SESSION['API'];
                             Home
                         </div>
                     </a>
+                    <a href="creserv.php" class="mLButton">
+                        <div class="mText">
+                            Create Blogg
+                        </div>
+                    </a>
                     <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstleyVEVO" class="mRButton">
                         <div class="mText">
                             Profile
