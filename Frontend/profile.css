@@ -53,17 +53,17 @@
 }
 .mText{
     margin-top:5%;
-    font-family: sans-serif;
 }
-.mLButton,.mRButton{
-    text-align:center;
-    border-right: 1px solid lightgrey;
-    border-left: 1px solid lightgray;
-    height:100%;
-    width:10%;
-    transition: 1s;
-    color:black;
-    text-decoration: none;
+.img{
+    width:100%;
+}
+.mLButton{
+    margin-left:3%;
+    margin-top:0.4%;
+    width:2%;
+}
+.mRButton{
+    width:2%;
 }
 .mLButton{
     float:left;
@@ -74,7 +74,7 @@
 .mLButton:hover, .mRButton:hover{
     background-color: lightgray;
     cursor: pointer;
-  }
+}
 .msearch{
     float:right;
     border: 1px solid lightgray;

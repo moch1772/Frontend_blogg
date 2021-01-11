@@ -16,12 +16,12 @@
                 <div class="menu">
                 <a href="home.php" class="mLButton">
                     <div class="mText">
-                        Home
+                        <img src="../icon/69524.png" class="img">
                     </div>
                 </a>
-                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstleyVEVO" class="mRButton">
+                <a href="profile.php" class="mRButton">
                     <div class="mText">
-                        Profile
+                        <img src="../icon/64495.png" class="img">
                     </div>
                 </a>
                 <div class="msearch">
