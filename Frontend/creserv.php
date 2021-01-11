@@ -1,6 +1,12 @@
 <?php
 include "getservice.php";
-$API="RRmjdNWZuAeDqhEPrCWT";
+session_start();
+$API=$_SESSION['API'];
+if(isset($_GET['service'])){
+    $serviceID=$_GET['service'];
+    }else{
+        header('location:index.php');
+    }
 echo'<form action="creserv.php" method="post">
 <input type="text" name="serviceTitle" requierd>
 <input type="hidden" name="serviceType" value="1">

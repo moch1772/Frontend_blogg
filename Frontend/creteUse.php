@@ -10,7 +10,13 @@ echo"<form action='creteUse.php' method='post'>
 </form>";
 
 $userID=17;
-$API="RRmjdNWZuAeDqhEPrCWT";
+session_start();
+$API=$_SESSION['API'];
+if(isset($_GET['service'])){
+    $serviceID=$_GET['service'];
+    }else{
+        header('location:index.php');
+    }
 if (isset($_POST['submit'])){
     $username=$_POST['username'];
     $password=$_POST['password'];

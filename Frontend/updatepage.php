@@ -10,7 +10,12 @@
 include "getservice.php";
 $pageID=6;
 
-$API="RRmjdNWZuAeDqhEPrCWT";
+$API=$_SESSION['API'];
+if(isset($_GET['service'])){
+    $serviceID=$_GET['service'];
+    }else{
+        header('location:index.php');
+    }
 $url = "http://wider.ntigskovde.se/api/pages/read_post_page.php?API=$API&pageID=$pageID";
         
 $outupt = file_get_contents($url);
@@ -22,13 +27,7 @@ if(isset($redPost['message'])){
     //header('location:index.php');
 }
 $cont=countt($redPost);
-function countt($jcode){
-    $count=0;
-foreach($jcode as $j){
-   $count +=count($j);
-}
-return $count;
-}
+
 if (array_key_exists('delete',$_POST)){
    
     $poID=$_POST['delete'];

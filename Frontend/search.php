@@ -2,6 +2,11 @@
 session_start();
 include_once "getservice.php";
 $API=$_SESSION['API'];
+if(isset($_GET['service'])){
+    $serviceID=$_GET['service'];
+    }else{
+        header('location:index.php');
+    }
 //hämtar service ID and puts it in an array
 if(isset($_POST['search'])){
     $pages=array();
