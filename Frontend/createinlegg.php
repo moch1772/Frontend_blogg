@@ -15,14 +15,14 @@ session_start();
 if(isset($_GET['service'])){
     $serviceID=$_GET['service'];
     }else{
-        header('location:index.php');
+        header('location:home.php');
     }
 $font="Arial,sans-serif";
 //$fontarr=array()
 $bold="bold";
 
   
-    echo"<form action='createinlegg.php' method='post' enctype='multipart/form-data'>
+    echo"<form action='createinlegg.php?service=$serviceID' method='post' enctype='multipart/form-data'>
 
 <input type='hidden' name='font' value='$font'>
 <input type='button' value='add text box' onclick='newpost(pp)'>
@@ -61,9 +61,9 @@ if(isset($_POST['submit'])){
     
     if($style=='picLeft' || $style=='picRight'){
         if($style=='picLeft'){
-            $target_dir = "../img/left";
+            $target_dir = "../img/left/";
         }else{
-            $target_dir = "../img/right";
+            $target_dir = "../img/right/";
         }
     
         $imgName=basename($_FILES["image"]["name"]);
@@ -95,10 +95,10 @@ if(isset($_POST['submit'])){
     }
 }
     if($style=='picLeft'){
-        $image=array("../img/left".$image);
+        $image=array("../img/left/".$image);
     }
     if($style=='picRight'){
-        $image=array("../img/right".$image);
+        $image=array("../img/right/".$image);
     }
     if($style=='textLeft'){
         $image=array("../img/left");
@@ -144,6 +144,7 @@ if(isset($_POST['submit'])){
     
     echo $pageID;
     cretPost($API,$count,$image,$postText,$postTitle,$pageID,$username);
+    header('location:blogg.php?service='.$serviceID);
        }   
 
        function generateRandomString($length = 10) {

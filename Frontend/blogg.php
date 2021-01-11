@@ -37,6 +37,11 @@ if(isset($_GET['service'])){
                     Home
                 </div>
             </a>
+            <a href="createinlegg.php?service=<?php echo $serviceID ?>" class="mLButton">
+                <div class="mText">
+                    create Post
+                </div>
+            </a>
             <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstleyVEVO" class="mRButton">
                 <div class="mText">
                     Profile
