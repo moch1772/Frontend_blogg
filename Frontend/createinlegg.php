@@ -49,7 +49,7 @@ if(isset($_POST['submit'])){
     $style=$_POST['picControl'];
 
     $username="karl";
-    $API="RRmjdNWZuAeDqhEPrCWT";
+    $API=$_SESSION['API'];
     
     if(isset($_FILES['image']['name'])){
     $image=$_FILES['image']['name'];

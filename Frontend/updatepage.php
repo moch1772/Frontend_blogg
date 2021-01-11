@@ -11,11 +11,7 @@ include "getservice.php";
 $pageID=6;
 
 $API=$_SESSION['API'];
-if(isset($_GET['service'])){
-    $serviceID=$_GET['service'];
-    }else{
-        header('location:index.php');
-    }
+
 $url = "http://wider.ntigskovde.se/api/pages/read_post_page.php?API=$API&pageID=$pageID";
         
 $outupt = file_get_contents($url);
