@@ -139,6 +139,12 @@
     margin-left: 2%;
     margin-top: 5%;
 }
+.ingTitle{
+
+}
+.ingText{
+    margin-left:5%;
+}
 .post{
     position: relative;
     width:70vw;
