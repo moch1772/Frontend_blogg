@@ -57,7 +57,7 @@ $API=$_SESSION['API'];
                         
                     //$serv=$redservis['data'][$i]['serviceID'];
                     
-                    if($redservis['data'][$i]['serviceType']==1){
+                    if($redservis['data'][$i]['serviceType']==3){
                         array_push($serv,$redservis['data'][$i]['serviceID']);
                     }
                 }
