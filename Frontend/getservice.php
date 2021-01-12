@@ -199,7 +199,7 @@ function servicePage($API,$serviceID,$name){
         $service = curl_exec($ch);
         $service = ltrim($service, ',');
         $service=json_decode($service,true);
-        if($service['serviceType']==1)
+        if($service['serviceType']==3)
         {
             return true;
         }else{
