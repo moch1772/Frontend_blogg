@@ -10,8 +10,7 @@
 <body>
 <?php
 session_start();
-$name="hugo";
-//$_SESSION['username'];
+$name = $_SESSION['username'];
 include "getservice.php";
 
 $API=$_SESSION['API'];

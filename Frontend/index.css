@@ -187,10 +187,10 @@ body::-webkit-scrollbar-track{
     color:white;
 }
 .post2 .column .postTitle{
-    margin-left:44%;
+    margin-left:-87%;
 }
 .post4 .column .postTitle{
-    margin-left:44%;
+    margin-left:65%;
 }
 .icon{
     display: block;
@@ -198,12 +198,12 @@ body::-webkit-scrollbar-track{
     width:4%;
 }
 .post2 .column .icon{
-    margin-left:44%;
+    margin-left:-87%;
     margin-top:0.5%;
     width:4%;
 }
 .post4 .column .icon{
-    margin-left:44%;
+    margin-left:77%;
     margin-top:0.5%;
     width:4%;
 }
@@ -213,7 +213,8 @@ body::-webkit-scrollbar-track{
 }
 .post2 .column .img{
     display:block;
-    width:70%;
+    width:60%;
+    margin-left:25%;
 }
 .text{
     width:100%;
@@ -222,9 +223,9 @@ body::-webkit-scrollbar-track{
     color:white;
 }
 .post2 .column .text{
-    width:120%;
-    margin-left: 0%;
-    margin-top:12%;
+    width:100%;
+    margin-left: -87%;
+    margin-top:-28%;
 }
 .post3 .column .text{
     width:165%;
