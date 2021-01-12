@@ -18,10 +18,11 @@ function serviceTitle($API,$serviceID){
     
     $serTitle=substr($output,$d,$p);
 
-    return $serTitle;
+    $dd = str_replace(array("\u00f6","\u00e4","\u00e5"),array("ö","ä","å"),$serTitle);
+    
 
-    if(isset($serTitle)){
-        return $serTitle;
+    if(isset($dd)){
+        return $dd;
     }
 
     
@@ -74,7 +75,7 @@ function servicePage($API,$serviceID,$name){
                 $postTitel=$redPost['posts'][$s]['postTitle'];
                 $postText=$redPost['posts'][$s]['pText'];
                 $username=$redPost['posts'][$s]['username'];
-                $imageURL=$redPost['posts'][$s]['imageURL'];
+                echo $imageURL=$redPost['posts'][$s]['imageURL'];
                 if($i==0 && $s==0){
                     echo"<div class='ingress' style='font-weight:bold;'>
                     <div class='ingTitle'><h2>$postTitel</h2></div>
@@ -261,6 +262,15 @@ foreach($jcode as $j){
    $count +=count($j);
 }
 return $count;
+}
+function generateRandomString($length = 10) {
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, $charactersLength - 1)];
+    }
+    return $randomString;
 }
 
         
