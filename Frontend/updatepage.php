@@ -8,9 +8,9 @@
 <body>
 <?php
 include "getservice.php";
-$pageID=6;
-
-$API=$_SESSION['API'];
+$pageID=284;
+$API="RRmjdNWZuAeDqhEPrCWT";
+//$API=$_SESSION['API'];
 
 $url = "http://wider.ntigskovde.se/api/pages/read_post_page.php?API=$API&pageID=$pageID";
         
@@ -24,6 +24,28 @@ if(isset($redPost['message'])){
 }
 $cont=countt($redPost);
 
+
+echo"<form action='updatepage.php' method='post'>";
+for ($s=0; $s < $cont; $s++) { 
+  
+   $postID=$redPost['posts'][$s]['postID'];
+   $postTitel=$redPost['posts'][$s]['postTitle'];
+   $postText=$redPost['posts'][$s]['pText'];
+   $username=$redPost['posts'][$s]['username'];
+   $image=$redPost['posts'][$s]['imageURL'];
+   
+   echo"<input type='text' name='title[]' value='$postTitel'>
+   <input type='text' name='text[]' value='$postText'>
+   <input type='hidden' name='postID[]' value='$postID'>
+   <input type='hidden' name='pop' value='$postID'>
+   <input type='submit' name='delete' value='delete' placeholder='delete'>";
+
+  
+}
+echo"<div id='pp'></div>
+<input type='submit' name='submit' value='submit'>
+<input type='button' value='add text box' onclick='newpost(pp)'>
+</form>";
 if (array_key_exists('delete',$_POST)){
    
     $poID=$_POST['delete'];
@@ -39,27 +61,6 @@ if (array_key_exists('submit',$_POST)) {
     cretPost($API,$count,$image,$postTe,$postTi,$pageID,$username); 
     deltallPost($API,$count,$poID);
 }
-echo"<form action='updatepage.php' method='post'>";
-for ($s=0; $s < $cont; $s++) { 
-  
-   $postID=$redPost['posts'][$s]['postID'];
-   $postTitel=$redPost['posts'][$s]['postTitle'];
-   $postText=$redPost['posts'][$s]['pText'];
-   $username=$redPost['posts'][$s]['username'];
-   $image=$redPost['posts'][$s]['imageURL'];
-   
-   echo"<input type='text' name='title[]' value='$postTitel'>
-   <input type='text' name='text[]' value='$postText'>
-   <input type='hidden' name='postID[]' value='$postID'>
-   <input type='submit' name='delete' value='$postID' placeholder='delete'>";
-
-  
-}
-echo"<div id='pp'></div>
-<input type='submit' name='submit' value='submit'>
-<input type='button' value='add text box' onclick='newpost(pp)'>
-</form>";
-
 
 function deltPost($API,$postID){
     
