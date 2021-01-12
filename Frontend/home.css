@@ -92,10 +92,10 @@ body{
     overflow-x:hidden;
 }
 .button{
-    width:60%;
-    height:5vh;
-    margin-left:20%;
-    margin-top:10%;
+    width:65%;
+    height:7vh;
+    margin-left:18%;
+    margin-top:5%;
     transition:1s ease;
     background: linear-gradient(rgb(144, 180, 247), rgb(144, 180, 247));
 }

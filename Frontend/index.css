@@ -165,7 +165,7 @@
 }
 .column{
     width:48%; 
-    margin-top: 30%;
+    margin-top: 20%;
     margin-left: 10%;
     display: block;
     float: left;
@@ -205,7 +205,8 @@
 }
 .text{
     width:100%;
-    margin-left:5%;
+    margin-left:65%;
+    margin-top:-31%;
     color:white;
 }
 .post2 .column .text{
