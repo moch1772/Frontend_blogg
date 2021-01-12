@@ -5,11 +5,11 @@ $API=$_SESSION['API'];
 
 echo'<form action="creserv.php" method="post">
 <input type="text" name="serviceTitle" requierd placeholder="Title">
-<input type="hidden" name="userID" value="14">
+<input type="hidden" name="userID" value="1">
 <label for="publish">Publish:</label> 
-<input type="radio" name="publish" value="1" placeholder="privet">
+<input type="radio" name="publish" value="1">
 <label for="publish">Don´t publish:</label>
-<input type="radio" name="publish" value="0" placeholder="public">
+<input type="radio" name="publish" value="0">
 <input type="submit" name="submit">
 </form>';
 
