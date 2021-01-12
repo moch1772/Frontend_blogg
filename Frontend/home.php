@@ -64,10 +64,11 @@ $API=$_SESSION['API'];
                 $serv=array_unique($serv);
                 foreach($serv as $i){
                     $servTitle=serviceTitle($API,$i);
-
+                    if($servTitle!='ceID":null,"serviceTitle":null,"serviceDate":null,"serviceType":null,"publis'){
                     echo "<form action='blogg.php?service=$i' method='post'>
                             <button class='button'>$servTitle</button>
                         </form>";
+                    }
                 }
                     ?>
                     <div class="hidden"></div>
