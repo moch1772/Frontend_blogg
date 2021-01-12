@@ -4,7 +4,7 @@ session_start();
 $API=$_SESSION['API'];
 
 echo'<form action="creserv.php" method="post">
-<input type="text" name="serviceTitle" requierd>
+<input type="text" name="serviceTitle" requierd placeholder="Title">
 <input type="hidden" name="serviceType" value="1">
 <input type="hidden" name="userID" value="1">
 <label for="publish">Publish:</label> 
@@ -33,5 +33,6 @@ if (isset($_POST['submit'])) {
     $output = curl_exec($ch);
     timeout($output);
     echo$output;
+    header("Location:home.php");
 }
 ?>

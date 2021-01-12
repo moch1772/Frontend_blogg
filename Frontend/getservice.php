@@ -11,7 +11,6 @@ function serviceTitle($API,$serviceID){
     
     $output = curl_exec($ch);
     timeout($output);
-
     $s=strpos($output,'","serviceD');
     $d=strpos($output,'Title":"');
     $d+=8;
@@ -46,78 +45,43 @@ function servicePage($API,$serviceID,$name){
     
     $count=0;
     //calculatess length of output array
-    if (isset($tt)) {
+    
    
     foreach($tt as $t){
-        $count +=count($t);
-    }}
+        if($t!="No pages Found"){
+        $count +=count($t);}
+    }
     
-     for ($i=0; $i < $count; $i++) { 
-         $pageID=$tt['pages'][$i]['pageID'];
-         
-         // $pageTitle=$tt['pages'][$i]['pageTitle'];
-         
-         //$ul = "http://sko.te4-ntig.se/wider/api/pages/read_post_page.php?API=$API&pageID=$pageID"; 
-         $ul = "http://wider.ntigskovde.se/api/pages/read_post_page.php?API=$API&pageID=$pageID";
-        
-         $outpt = file_get_contents($ul);
-         $redPost=json_decode($outpt,true);
-        $cont=0;
-        if(!isset($redPost['message'])){
-        foreach($redPost as $red){
-            $cont +=count($red);
-        }
-         for ($s=0; $s < $cont; $s++) { 
-           
-            $postID=$redPost['posts'][$s]['postID'];
-            $postTitel=$redPost['posts'][$s]['postTitle'];
-            $postText=$redPost['posts'][$s]['pText'];
-            $username=$redPost['posts'][$s]['username'];
-            $imageURL=$redPost['posts'][$s]['imageURL'];
-            if($i==0 && $s==0){
-                echo"<div class='ingress' style='font-weight:bold;'>
-                <div class='postTitle'><h2>$postTitel</h2></div>
-                <div class='text'>$postText</div>
-                </div>";
-            }else{
-                if(stripos($imageURL,"../img/left/")!==false){
-                echo"<div class='post'>
-                <div class='column'>
-                <div class='postTitle'><h2>$postTitel</h2></div>
-                <img src='../icon/25360.png' class='icon'>
-                <img src='$imageURL' class='img'>
-                <div class='text'>$postText</div>
-                </div>
-                </div>";}
-                elseif(stripos($imageURL,"../img/right/")!==false){
-                    echo"<div class='post2'>
-                    <div class='column'>
+    if($count>0){
+        for ($i=0; $i < $count; $i++) { 
+            $pageID=$tt['pages'][$i]['pageID'];
+            
+            // $pageTitle=$tt['pages'][$i]['pageTitle'];
+            
+            //$ul = "http://sko.te4-ntig.se/wider/api/pages/read_post_page.php?API=$API&pageID=$pageID"; 
+            $ul = "http://wider.ntigskovde.se/api/pages/read_post_page.php?API=$API&pageID=$pageID";
+            
+            $outpt = file_get_contents($ul);
+            $redPost=json_decode($outpt,true);
+            $cont=0;
+            if(!isset($redPost['message'])){
+            foreach($redPost as $red){
+                $cont +=count($red);
+            }
+            for ($s=0; $s < $cont; $s++) { 
+            
+                $postID=$redPost['posts'][$s]['postID'];
+                $postTitel=$redPost['posts'][$s]['postTitle'];
+                $postText=$redPost['posts'][$s]['pText'];
+                $username=$redPost['posts'][$s]['username'];
+                $imageURL=$redPost['posts'][$s]['imageURL'];
+                if($i==0 && $s==0){
+                    echo"<div class='ingress' style='font-weight:bold;'>
                     <div class='postTitle'><h2>$postTitel</h2></div>
-                    <img src='../icon/25360.png' class='icon'>
-                    <img src='$imageURL' class='img'>
                     <div class='text'>$postText</div>
-                    </div>
                     </div>";
-                }
-                elseif(stripos($imageURL,"../img/left")!==false){
-                    echo"<div class='post3'>
-                    <div class='column'>
-                    <div class='postTitle'><h2>$postTitel</h2></div>
-                    <img src='../icon/25360.png' class='icon'>
-                    <div class='text'>$postText</div>
-                    </div>
-                    </div>";
-                }
-                elseif(stripos($imageURL,"../img/right")!==false){
-                    echo"<div class='post4'>
-                    <div class='column'>
-                    <div class='postTitle'><h2>$postTitel</h2></div>
-                    <img src='../icon/25360.png' class='icon'>
-                    <div class='text'>$postText</div>
-                    </div>
-                    </div>";
-                }
-                else{
+                }else{
+                    if(stripos($imageURL,"../img/left/")!==false){
                     echo"<div class='post'>
                     <div class='column'>
                     <div class='postTitle'><h2>$postTitel</h2></div>
@@ -125,21 +89,63 @@ function servicePage($API,$serviceID,$name){
                     <img src='$imageURL' class='img'>
                     <div class='text'>$postText</div>
                     </div>
-                    </div>";
+                    </div>";}
+                    elseif(stripos($imageURL,"../img/right/")!==false){
+                        echo"<div class='post2'>
+                        <div class='column'>
+                        <div class='postTitle'><h2>$postTitel</h2></div>
+                        <img src='../icon/25360.png' class='icon'>
+                        <img src='$imageURL' class='img'>
+                        <div class='text'>$postText</div>
+                        </div>
+                        </div>";
+                    }
+                    elseif(stripos($imageURL,"../img/left")!==false){
+                        echo"<div class='post3'>
+                        <div class='column'>
+                        <div class='postTitle'><h2>$postTitel</h2></div>
+                        <img src='../icon/25360.png' class='icon'>
+                        <div class='text'>$postText</div>
+                        </div>
+                        </div>";
+                    }
+                    elseif(stripos($imageURL,"../img/right")!==false){
+                        echo"<div class='post4'>
+                        <div class='column'>
+                        <div class='postTitle'><h2>$postTitel</h2></div>
+                        <img src='../icon/25360.png' class='icon'>
+                        <div class='text'>$postText</div>
+                        </div>
+                        </div>";
+                    }
+                    else{
+                        echo"<div class='post'>
+                        <div class='column'>
+                        <div class='postTitle'><h2>$postTitel</h2></div>
+                        <img src='../icon/25360.png' class='icon'>
+                        <img src='$imageURL' class='img'>
+                        <div class='text'>$postText</div>
+                        </div>
+                        </div>";
+                    }
+                }
+                
+            }
+            if($username==$name){
+            
+                echo "<form action='blogg.php?service=$serviceID' method='post'>
+                <input type='submit' name='del' value='$pageID' placeholder='delete'>
+                </form>";
+                if(isset($_POST['del'])){
+                    deletePage($API,$_POST['del']);
                 }
             }
-            
-         }
-         if($username==$name){
-         
-            echo "<form action='blogg.php?service=$serviceID' method='post'>
-            <input type='submit' name='del' value='$pageID' placeholder='delete'>
-            </form>";
-            if(isset($_POST['del'])){
-                deletePage($API,$_POST['del']);
-             }
+            }
         }
-        }
+    }else{
+        echo"<div class='ingress' style='font-weight:bold;'>There are no post on this page
+                    </div>";
+        echo "";
     }
         
         
