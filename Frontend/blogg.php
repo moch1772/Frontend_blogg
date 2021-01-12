@@ -18,7 +18,7 @@ $API=$_SESSION['API'];
 if(isset($_GET['service'])){
     $serviceID=$_GET['service'];
     }else{
-        header('location:index.php');
+        header('location:home.php');
     }  
 //$pageTitle="nog";
 // sertchPage($API,$serviceID,$pageTitle);
@@ -27,7 +27,10 @@ if(isset($_GET['service'])){
         <div class="foreground">
             <div class="billboard"></div>
             <div class="title"><h1>';
-            echo serviceTitle($API,$serviceID);
+            $serviceTitle=serviceTitle($API,$serviceID);
+            if($serviceTitle=='ceID":null,"serviceTitle":null,"serviceDate":null,"serviceType":null,"publis'){
+                header('location:home.php');
+            }
             echo'</h1></div>';
             ?>
             
