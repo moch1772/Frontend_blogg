@@ -10,7 +10,6 @@
 <body>
 <?php
 session_start();
-
 $name=$_SESSION['username'];
 include "getservice.php";
 
