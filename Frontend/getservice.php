@@ -77,8 +77,8 @@ function servicePage($API,$serviceID,$name){
                 $imageURL=$redPost['posts'][$s]['imageURL'];
                 if($i==0 && $s==0){
                     echo"<div class='ingress' style='font-weight:bold;'>
-                    <div class='postTitle'><h2>$postTitel</h2></div>
-                    <div class='text'>$postText</div>
+                    <div class='ingTitle'><h2>$postTitel</h2></div>
+                    <div class='ingText'>$postText</div>
                     </div>";
                 }else{
                     if(stripos($imageURL,"../img/left/")!==false){
