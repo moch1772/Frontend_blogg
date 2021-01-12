@@ -11,7 +11,7 @@ include "getservice.php";
 session_start();
 //$API=$_SESSION['API'];
 //$userID=$_SESSION['userID'];
-//$username=$_SESSION['username'];
+$username=$_SESSION['username'];
 if(isset($_GET['service'])){
     $serviceID=$_GET['service'];
     }else{
@@ -52,7 +52,6 @@ if(isset($_POST['submit'])){
     $pageTitle="smothe";
     $style=$_POST['picControl'];
 
-    $username="karl";
     $API=$_SESSION['API'];
     
     if(isset($_FILES['image']['name'])){
@@ -147,15 +146,7 @@ if(isset($_POST['submit'])){
     header('location:blogg.php?service='.$serviceID);
        }   
 
-       function generateRandomString($length = 10) {
-        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        $charactersLength = strlen($characters);
-        $randomString = '';
-        for ($i = 0; $i < $length; $i++) {
-            $randomString .= $characters[rand(0, $charactersLength - 1)];
-        }
-        return $randomString;
-    }
+       
 
 ?>
 <script type="text/JavaScript">
