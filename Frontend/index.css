@@ -13,6 +13,9 @@
 ::-webkit-scrollbar-track{
     display: hidden;
 }
+body::-webkit-scrollbar-track{
+    background-color: rgba(255, 255, 255, 0);
+}
 .content{
     position: relative;
     width:99vw;
@@ -20,7 +23,7 @@
 }
 .background{
     min-height: auto;
-    background: linear-gradient(white, lightblue);
+    background: linear-gradient(white, rgb(63, 194, 238));
 }
 .foreground{
     position: relative;
@@ -41,6 +44,7 @@
     text-align: center;
     margin-top: -25vh;
     z-index:1;
+    color:white;
 }
 .menu{
     height:5vh;
@@ -137,11 +141,12 @@
     background: linear-gradient(rgb(67, 97, 231), rgb(20, 21, 77));
 }
 .ingress{
+    color:white;
     margin-left: 2%;
     margin-top: 5%;
 }
 .ingTitle{
-
+    margin-left:2%;
 }
 .ingText{
     margin-left:5%;
@@ -182,10 +187,10 @@
     color:white;
 }
 .post2 .column .postTitle{
-    margin-left:44%;
+    margin-left:-87%;
 }
 .post4 .column .postTitle{
-    margin-left:44%;
+    margin-left:65%;
 }
 .icon{
     display: block;
@@ -193,12 +198,12 @@
     width:4%;
 }
 .post2 .column .icon{
-    margin-left:44%;
+    margin-left:-87%;
     margin-top:0.5%;
     width:4%;
 }
 .post4 .column .icon{
-    margin-left:44%;
+    margin-left:77%;
     margin-top:0.5%;
     width:4%;
 }
@@ -208,7 +213,8 @@
 }
 .post2 .column .img{
     display:block;
-    width:70%;
+    width:60%;
+    margin-left:25%;
 }
 .text{
     width:100%;
@@ -217,9 +223,9 @@
     color:white;
 }
 .post2 .column .text{
-    width:120%;
-    margin-left: 0%;
-    margin-top:12%;
+    width:100%;
+    margin-left: -87%;
+    margin-top:-28%;
 }
 .post3 .column .text{
     width:165%;
