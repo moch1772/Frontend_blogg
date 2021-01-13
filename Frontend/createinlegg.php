@@ -83,7 +83,7 @@ if(isset($_POST['submit'])){
             //$uploadOk = 0;
         }
         
-        if ($uploadOk==1 && $_FILES["image"]["size"] > 50000000) {
+        if ($uploadOk==1 && $_FILES["image"]["size"][$i] > 50000000) {
             echo "Sorry, your file is too large.<br>";
             $uploadOk = 0;
         }
