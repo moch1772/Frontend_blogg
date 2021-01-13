@@ -30,6 +30,7 @@ if(isset($_GET['service'])){
             if($serviceTitle=='ceID":null,"serviceTitle":null,"serviceDate":null,"serviceType":null,"publis'){
                 header('location:home.php');
             }
+            echo $serviceTitle;
             echo'</h1></div>';
             ?>
             

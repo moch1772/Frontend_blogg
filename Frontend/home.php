@@ -48,6 +48,9 @@ $API=$_SESSION['API'];
                     $redservis=json_decode($output,true);
 
                     $count=0;
+                    if($redservis==NULL){
+                        header('Location:login.php');
+                    }
                     foreach($redservis as $t){
                         $count +=count($t);
                     }
