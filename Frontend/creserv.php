@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/create.css">
+</head>
+<body>
 <?php
 include "getservice.php";
 session_start();
@@ -10,9 +19,10 @@ echo'<form action="creserv.php" method="post">
 <input type="radio" name="publish" value="1" checked>
 <label for="publish">Don´t publish:</label>
 <input type="radio" name="publish" value="0"><br>
-<label for="post">Ingress</label><br>
-<input type="text" name="postTitle" requierd placeholder="Title">
-<input type="text" name="postText" requierd placeholder="Text">
+<label for="post">Ingress:</label><br>
+<input type="text" name="postTitle" requierd placeholder="Title"><br>
+<br>
+<textarea type="text" name="postText" requierd placeholder="Text"></textarea><br>
 <input type="submit" name="submit">
 </form>';
 

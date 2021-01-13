@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/create.css">
     <title>Document</title>
 </head>
 <body>
@@ -28,10 +29,10 @@ $bold="bold";
 <input type='button' value='add text box' onclick='newpost(pp)'>
 
 <div id='pp'>
-<input type='text' name='postTitle' placeholder='page title'>
-<input type='text' name='subtitle[]' placeholder='post title'>
-<input type='text' name='subtext[]' placeholder='post text'>
-<input type='file' name='image' accept='image/x-png,image/gif,image/jpeg'>
+<input type='text' name='postTitle' placeholder='page title'><br><br>
+<input type='text' class='title' name='subtitle[]' placeholder='post title'>
+<input type='file' name='image[]' accept='image/x-png,image/gif,image/jpeg'><br>
+<textarea type='text' name='subtext[]' placeholder='post text'></textarea>
 </div>
 <input type='radio' id='picLeft' name='picControl' value='picLeft'>
 <label for='picLeft'>Image to the left</label><br>
@@ -51,11 +52,17 @@ if(isset($_POST['submit'])){
     $metaTag=generateRandomString();
     $pageTitle="smothe";
     $style=$_POST['picControl'];
+    $imageArray=array();
 
     $API=$_SESSION['API'];
-    
-    if(isset($_FILES['image']['name'])){
-    $image=$_FILES['image']['name'];
+    $countfiles = count($_FILES['image']['name']);
+ 
+            // Looping all files
+        for($i=0;$i<$countfiles;$i++){
+    //die();
+
+    if(isset($_FILES['image']['name'][$i])){
+    $image=$_FILES['image']['name'][$i];
 
     
     if($style=='picLeft' || $style=='picRight'){
@@ -65,18 +72,18 @@ if(isset($_POST['submit'])){
             $target_dir = "../img/right/";
         }
     
-        $imgName=basename($_FILES["image"]["name"]);
-        $target_file = $target_dir . basename($_FILES["image"]["name"]);
+        $imgName=basename($_FILES["image"]["name"][$i]);
+        $target_file = $target_dir . basename($_FILES["image"]["name"][$i]);
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
         // Kollar om filen redan finns
         if ($uploadOk==1 && file_exists($target_file)) {
             echo "Sorry, file already exists.<br>";
-            $uploadOk = 0;
+            //$uploadOk = 0;
         }
         
-        if ($uploadOk==1 && $_FILES["image"]["size"] > 5000000) {
+        if ($uploadOk==1 && $_FILES["image"]["size"] > 50000000) {
             echo "Sorry, your file is too large.<br>";
             $uploadOk = 0;
         }
@@ -87,23 +94,28 @@ if(isset($_POST['submit'])){
             //header('Location: ' . $_SERVER['HTTP_REFERER']);
             // Laddar upp filen
         } else {
-            if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-                echo "The file ". basename( $_FILES["image"]["name"]). " has been uploaded.<br>";
+            if (move_uploaded_file($_FILES["image"]["tmp_name"][$i], $target_file)) {
+                echo "The file ". basename( $_FILES["image"]["name"][$i]). " has been uploaded.<br>";
             }
         }
     }
-}
+    
+    
+
     if($style=='picLeft'){
-        $image=array("../img/left/".$image);
+        array_push($imageArray,"../img/left/".$image);
     }
     if($style=='picRight'){
-        $image=array("../img/right/".$image);
+        array_push($imageArray,"../img/right/".$image);
     }
+    
     if($style=='textLeft'){
-        $image=array("../img/left");
+        array_push($imageArray,"../img/left");
     }
     if($style=='textRight'){
-        $image=array("../img/right");
+        array_push($imageArray,"../img/right");
+    }
+    }
     }
     $count=0;
     foreach ($postTitle as $po) {
@@ -142,9 +154,10 @@ if(isset($_POST['submit'])){
     }
     
     echo $pageID;
-    cretPost($API,$count,$image,$postText,$postTitle,$pageID,$username);
-    header('location:blogg.php?service='.$serviceID);
-       }   
+    cretPost($API,$count,$imageArray,$postText,$postTitle,$pageID,$username);
+    
+    header('location:blogg.php?service='.$serviceID);}
+          
 
        
 
@@ -152,7 +165,7 @@ if(isset($_POST['submit'])){
 <script type="text/JavaScript">
 function newpost(tt){
     var nys = document.createElement('div');
-    nys.innerHTML ="<input type='file' name='image' accept='image/x-png,image/gif,image/jpeg'><input type='text' name='subtitle[]'><input type='text' name='subtext[]'>";
+    nys.innerHTML ="<br><input type='text' name='subtitle[]' placeholder='Titel'><input type='file' name='image[]' accept='image/x-png,image/gif,image/jpeg'><br><textarea type='text' name='subtext[]' placeholder='Text'></textarea>";
     document.getElementById("pp").appendChild(nys);
 }
 
