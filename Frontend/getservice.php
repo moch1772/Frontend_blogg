@@ -43,7 +43,6 @@ function servicePage($API,$serviceID,$name){
 
     timeout($output);
     $tt=json_decode($output,true);
-    
     $count=0;
     //calculatess length of output array
     
@@ -56,7 +55,6 @@ function servicePage($API,$serviceID,$name){
     if($count>0){
         for ($i=0; $i < $count; $i++) { 
             $pageID=$tt['pages'][$i]['pageID'];
-            
             // $pageTitle=$tt['pages'][$i]['pageTitle'];
             
             //$ul = "http://sko.te4-ntig.se/wider/api/pages/read_post_page.php?API=$API&pageID=$pageID"; 
@@ -76,7 +74,7 @@ function servicePage($API,$serviceID,$name){
                 $postText=$redPost['posts'][$s]['pText'];
                 $username=$redPost['posts'][$s]['username'];
                 $imageURL=$redPost['posts'][$s]['imageURL'];
-                if($i==0 && $s==0){
+                if($i==0 && $s==0 && $postTitel="Ingress"){
                     echo"<div class='ingress' style='font-weight:bold;'>
                     <div class='ingTitle'><h2>$postTitel</h2></div>
                     <div class='ingText'>$postText</div>
@@ -132,7 +130,7 @@ function servicePage($API,$serviceID,$name){
                 }
                 
             }
-            if($username==$name){
+            if($username==$name && $postTitel!="Ingress"){
             
                 echo "<form action='blogg.php?service=$serviceID' method='post'>
                 <input type='submit' name='del' value='$pageID' placeholder='delete'>
