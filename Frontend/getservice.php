@@ -75,7 +75,7 @@ function servicePage($API,$serviceID,$name){
                 $postTitel=$redPost['posts'][$s]['postTitle'];
                 $postText=$redPost['posts'][$s]['pText'];
                 $username=$redPost['posts'][$s]['username'];
-                echo $imageURL=$redPost['posts'][$s]['imageURL'];
+                $imageURL=$redPost['posts'][$s]['imageURL'];
                 if($i==0 && $s==0){
                     echo"<div class='ingress' style='font-weight:bold;'>
                     <div class='ingTitle'><h2>$postTitel</h2></div>
@@ -87,8 +87,8 @@ function servicePage($API,$serviceID,$name){
                     <div class='column'>
                     <div class='postTitle'><h2>$postTitel</h2></div>
                     <img src='../icon/25360.png' class='icon'>
-                    <img src='$imageURL' class='img'>
                     <div class='text'>$postText</div>
+                    <img src='$imageURL' class='img'>
                     </div>
                     </div>";}
                     elseif(stripos($imageURL,"../img/right/")!==false){
