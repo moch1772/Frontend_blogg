@@ -30,7 +30,7 @@ if (isset($_POST['submit'])) {
     $userID=$_POST['userID'];
     $serviceTitle=$_POST['serviceTitle'];
     $username=$_SESSION['username'];
-    $postTitle=array($_POST['postTitle']);
+    $postTitle=array("Ingress");
     $postText=array($_POST['postText']);
     $image=array("Ingress");
 
