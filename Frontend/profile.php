@@ -42,6 +42,40 @@ include_once 'getservice.php';
                         <div class="password">Password '.$_SESSION['password'].'</div>
                     </div>';
                     
+                    //Your bloggs
+                    $url= "http://wider.ntigskovde.se/api/pages/read_service.php?API=".$_SESSION['API'];
+                    $output = file_get_contents($url);
+                    $redservis=json_decode($output,true);
+
+                    $count=0;
+                    if($redservis==NULL){
+                        header('Location:login.php');
+                    }
+                    foreach($redservis as $t){
+                        $count +=count($t);
+                    }
+
+                    $serv=array();
+                    for ($i=0; $i < $count; $i++) { 
+                        
+                    //$serv=$redservis['data'][$i]['serviceID'];
+                    
+                    if($redservis['data'][$i]['serviceType']==3){
+                        array_push($serv,$redservis['data'][$i]['serviceID']);
+                    }
+                }
+                $serv=array_unique($serv);
+                foreach($serv as $i){
+                    $servTitle=serviceTitle($_SESSION['API'],$i);
+                    if(isset($servTitle[1])){
+                        if($servTitle[0]!='ceID":null,"serviceTitle":null,"serviceDate":null,"serviceType":null,"publis' && $servTitle[1]==$_SESSION['userID']){
+                            echo "<form action='blogg.php?service=$i' method='post'>
+                                    <button class='button'>$servTitle[0]</button>
+                                </form>";
+                        }
+                    }}
+                
+                    
 
                 ?>
             </div>
