@@ -27,7 +27,7 @@ $API=$_SESSION['API'];
                             Create Blogg
                         </div>
                     </a>
-                    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstleyVEVO" class="mRButton">
+                    <a href="profile.php?userID=<?php echo $_SESSION['userID'];?>" class="mRButton">
                         <div class="mText">
                             Profile
                         </div>
@@ -67,9 +67,9 @@ $API=$_SESSION['API'];
                 $serv=array_unique($serv);
                 foreach($serv as $i){
                     $servTitle=serviceTitle($API,$i);
-                    if($servTitle!='ceID":null,"serviceTitle":null,"serviceDate":null,"serviceType":null,"publis'){
+                    if($servTitle[0]!='ceID":null,"serviceTitle":null,"serviceDate":null,"serviceType":null,"publis'){
                     echo "<form action='blogg.php?service=$i' method='post'>
-                            <button class='button'>$servTitle</button>
+                            <button class='button'>$servTitle[0]</button>
                         </form>";
                     }
                 }

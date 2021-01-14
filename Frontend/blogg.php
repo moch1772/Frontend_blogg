@@ -27,10 +27,11 @@ if(isset($_GET['service'])){
             <div class="billboard"></div>
             <div class="title"><h1>';
             $serviceTitle=serviceTitle($API,$serviceID);
-            if($serviceTitle=='ceID":null,"serviceTitle":null,"serviceDate":null,"serviceType":null,"publis'){
+
+            if($serviceTitle[0]=='ceID":null,"serviceTitle":null,"serviceDate":null,"serviceType":null,"publis'){
                 header('location:home.php');
             }
-            echo $serviceTitle;
+            echo $serviceTitle[0];
             echo'</h1></div>';
             ?>
             
