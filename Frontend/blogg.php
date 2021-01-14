@@ -46,16 +46,11 @@ if(isset($_GET['service'])){
                     create Post
                 </div>
             </a>
-            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstleyVEVO" class="mRButton">
+            <a href="profile.php?userID=<?php $_SESSION['userID']?>" class="mRButton">
                 <div class="mText">
                     Profile
                 </div>
             </a>
-            <div class="msearch">
-                <form action="search.php" method="POST">
-                    <input type="text" id="search" name="search" placeholder="Search"></form>
-                </form>
-            </div>
         </div>
         <div class="background2">
     <?php
