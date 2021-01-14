@@ -27,10 +27,10 @@ echo'<form action="creserv.php" method="post">
 </form>';
 
 if (isset($_POST['submit'])) {
+    $serviceTitle=$_POST['serviceTitle']."¤".$_SESSION['userID'];
     $userID=$_POST['userID'];
-    $serviceTitle=$_POST['serviceTitle'];
     $username=$_SESSION['username'];
-    $postTitle=array($_POST['postTitle']);
+    $postTitle=array("Ingress");
     $postText=array($_POST['postText']);
     $image=array("Ingress");
 

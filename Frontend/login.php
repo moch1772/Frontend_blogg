@@ -32,9 +32,11 @@
         if($API=="nono"){
             echo $API;
         }else {
+            $userID=getuserID($API,$username);
             $_SESSION['API']=$API;
             $_SESSION['username']=$username;
             $_SESSION['password']=$password;
+            $_SESSION['userID']=$userID;
 
             header("location:home.php");
         }
