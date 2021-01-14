@@ -19,7 +19,7 @@ function serviceTitle($API,$serviceID){
     $serTitle=substr($output,$d,$p);
 
     $dd = str_replace(array("\u00f6","\u00e4","\u00e5"),array("ö","ä","å"),$serTitle);
-    
+    $dd=explode('\u00a4',$dd);
 
     if(isset($dd)){
         return $dd;
