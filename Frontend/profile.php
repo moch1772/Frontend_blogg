@@ -1,3 +1,7 @@
+<?php
+session_start();
+include_once 'getservice.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,9 +38,10 @@
                 <?php
 
                     echo '<div class="profile">
-                        <div class="name">Username</div>
-                        <div class="password">Password *******</div>
+                        <div class="name">Username '.$_SESSION['username'].'</div>
+                        <div class="password">Password '.$_SESSION['password'].'</div>
                     </div>';
+                    
 
                 ?>
             </div>
