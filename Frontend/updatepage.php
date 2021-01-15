@@ -7,10 +7,11 @@
 </head>
 <body>
 <?php
+session_start();
 include "getservice.php";
-$pageID=281;
-$API="RRmjdNWZuAeDqhEPrCWT";
-//$API=$_SESSION['API'];
+$pageID=$_POST['edit'];
+
+$API=$_SESSION['API'];
 
 $url = "http://wider.ntigskovde.se/api/pages/read_post_page.php?API=$API&pageID=$pageID";
         
