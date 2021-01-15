@@ -59,6 +59,9 @@ body::-webkit-scrollbar-track{
     margin-top:5%;
     font-family: sans-serif;
 }
+.img{
+    width:100%;
+}
 .mLButton,.mRButton{
     text-align:center;
     border-right: 1px solid lightgrey;
@@ -171,6 +174,12 @@ textarea {
 .noPublish{
     color:white;
 }
+.note{
+    color:red;
+    font-weight: bold;
+    margin-left:20%;
+}
 .submit{
     margin-left:20%;
+    margin-top:2%;
 }
