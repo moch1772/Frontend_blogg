@@ -10,6 +10,7 @@
 
     <?php
     session_start();
+    $_SESSION = array();
     include "getservice.php";
     echo'<div class="content"> 
             <div class="foreground">
@@ -20,6 +21,9 @@
                         <input class="input" type="text" name="username" placeholder="Användarnamn" required>
                         <input class="input" type="password" name="paword" placeholder="Lösenord"  required>
                         <input class="button" type="submit" name="submit" value="Logga in">
+                    </form>
+                    <form action="login.php" method="post">
+                    <input class="button2" type="submit" name="submit" value="Register">
                     </form>
                 </div>
             </div>
