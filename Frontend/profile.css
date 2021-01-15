@@ -140,7 +140,21 @@
 .profile{
     width:40%;
     height:50%;
-    margin-left:30%;
-    margin-top:20%;
-    background-color:white;
+    margin-left:3%;
+    margin-top:2%;
+    font-size:2em;
 }
+.button{
+    width:65%;
+    height:7vh;
+    font-size:16px;
+    margin-left:18%;
+    margin-top:5%;
+    transition:1s ease;
+    background: linear-gradient(rgb(193, 67, 231), rgb(104, 26, 104));
+}
+.button:hover{
+    cursor: pointer;
+    background:linear-gradient(20deg, rgb(124, 33, 124) 1%,rgb(193, 67, 231) 40%, white 100%);
+    box-shadow: 0.5px 0.5px 6px 0px;
+}  
