@@ -27,6 +27,11 @@ $API=$_SESSION['API'];
                             Create Blogg
                         </div>
                     </a>
+                    <a href="creteUse.php" class="mLButton">
+                        <div class="mText">
+                            Register user
+                        </div>
+                    </a>
                     <a href="profile.php?userID=<?php echo $_SESSION['userID'];?>" class="mRButton">
                         <div class="mText">
                             Profile

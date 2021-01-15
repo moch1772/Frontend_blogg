@@ -37,10 +37,15 @@ include_once 'getservice.php';
             <div class="background2">
                 <?php
 
+
                     echo '<div class="profile">
                         <div class="name">Username '.$_SESSION['username'].'</div>
-                        <div class="password">Password '.$_SESSION['password'].'</div>
-                    </div>';
+                        <div class="password">Password ';
+                        for ($i=0;$i<strlen($_SESSION['password']);$i++)
+                        {
+                            echo "*";
+                        }
+                        echo '</div>';
                     
                     //Your bloggs
                     $url= "http://wider.ntigskovde.se/api/pages/read_service.php?API=".$_SESSION['API'];
@@ -69,9 +74,10 @@ include_once 'getservice.php';
                     $servTitle=serviceTitle($_SESSION['API'],$i);
                     if(isset($servTitle[1])){
                         if($servTitle[0]!='ceID":null,"serviceTitle":null,"serviceDate":null,"serviceType":null,"publis' && $servTitle[1]==$_SESSION['userID']){
-                            echo "<form action='blogg.php?service=$i' method='post'>
+                            echo "<div>Bloggs:</div>
+                            <form action='blogg.php?service=$i' method='post'>
                                     <button class='button'>$servTitle[0]</button>
-                                </form>";
+                                </form></div>";
                         }
                     }}
                 
