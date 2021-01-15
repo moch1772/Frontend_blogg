@@ -1,1 +1,3 @@
-IM BROKEN
+<?php
+header('Location:login.php');
+?>

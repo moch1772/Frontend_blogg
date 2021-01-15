@@ -22,9 +22,9 @@
                         <input class="input" type="password" name="paword" placeholder="Lösenord"  required>
                         <input class="button" type="submit" name="submit" value="Logga in">
                     </form>
-                    <form action="login.php" method="post">
-                    <input class="button2" type="submit" name="submit" value="Register">
-                    </form>
+                    
+                    <a href="creteUse.php"><button class="button2">Register</button></a>
+                    
                 </div>
             </div>
         </div>';
