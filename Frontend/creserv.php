@@ -19,17 +19,12 @@
                 <div class="menu">
                 <a href="home.php" class="mLButton">
                     <div class="mText">
-                        Home
+                        <img src="../icon/69524.png" class="img">
                     </div>
                 </a>
-                <a href="createinlegg.php?service=<?php echo $serviceID ?>" class="mLButton">
+                <a href="profile.php" class="mRButton">
                     <div class="mText">
-                        create Post
-                    </div>
-                </a>
-                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstleyVEVO" class="mRButton">
-                    <div class="mText">
-                        Profile
+                        <img src="../icon/64495.png" class="img">
                     </div>
                 </a>
                 <div class="msearch">
@@ -55,39 +50,40 @@
                 <input type="radio" name="publish" value="1" checked>
                 <label class="noPublish" for="publish">Don´t publish:</label>
                 <input type="radio" name="publish" value="0"><br>
+                <p class="note">Note that if you publish this blogg, it will show for other users</p>
                 <input class="submit" type="submit" name="submit">
                 </form>';
 
                 if (isset($_POST['submit'])) {
+                    $serviceTitle=$_POST['serviceTitle']."¤".$_SESSION['userID'];
                     $userID=$_POST['userID'];
-                    $serviceTitle=$_POST['serviceTitle'];
                     $username=$_SESSION['username'];
-                    $postTitle=array($_POST['postTitle']);
+                    $postTitle=array("Ingress");
                     $postText=array($_POST['postText']);
                     $image=array("Ingress");
-
+                
                     $publish=$_POST['publish'];
                     $ch=curl_init();
                     $arr= json_encode(array("userID"=>$userID,"serviceType"=>3,"publish"=>$publish,"serviceTitle"=>$serviceTitle));
                     $url="http://wider.ntigskovde.se/api/pages/create_service.php?API=$API";
                     curl_setopt($ch, CURLOPT_URL, $url);
-
+                
                     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-
+                
                     curl_setopt($ch, CURLOPT_POST, 1);
-
+                
                     curl_setopt($ch, CURLOPT_POSTFIELDS, $arr);
-
+                
                     $output = curl_exec($ch);
                     timeout($output);
                     echo$output;
-
-
-
-
-
-
-
+                
+                
+                
+                
+                
+                
+                
                                 //Create Ingress
                                     //Create page for ingress
                                 $serviceID=getServiceID($API);
@@ -138,11 +134,11 @@
                                 cretPost($API,$count,$image,$postText,$postTitle,$pageID,$username);
                                 echo $serviceID;
                                 header("Location:blogg.php?service=$serviceID");
-                                }
-
-
-
-
+                                   }
+                
+                
+                
+                
                 function getServiceID($API){
                     $url= "http://wider.ntigskovde.se/api/pages/read_service.php?API=$API";
                                     $output = file_get_contents($url);
@@ -152,7 +148,7 @@
                                     foreach($redservis as $t){
                                         $count +=count($t);
                                     }
-
+                
                                     $serv=array();
                                 for ($i=0; $i < $count; $i++) { 
                                         
@@ -163,7 +159,7 @@
                                 print_r($serv);
                                 return end($serv);
                             }
-
+                
                 ?>
             </div>
         </div>
