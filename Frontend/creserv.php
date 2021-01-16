@@ -13,6 +13,7 @@
             <div class="foreground">
                 <div class="billboard">
                     <div class="block"></div>
+                    <button onclick="back()" class="back"><img src="../icon/585e473bcb11b227491c3381.png" class="goBack"></button>
                     <h1><div class="resTitle" id="resTitle"></div></h1>
                 </div>
                 

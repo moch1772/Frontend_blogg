@@ -1,3 +1,7 @@
+function back(){
+    window.history.back();
+}
+
 $(document).ready(function(){
     $("#title").on("input", function(){
         $("#resTitle").text($(this).val());
