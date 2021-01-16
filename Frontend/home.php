@@ -15,35 +15,34 @@ $API=$_SESSION['API'];
 <body>
     <div class="content">
         <div class="background">
-            <div class='foreground'></div>
+            <div class='foreground'>
+                <div class="hidden"></div>
+                <a href="login.php" title="Logout" class="logout">
+                    <img src="../icon/Icons8-Windows-8-User-Interface-Logout.ico" class="logimg">
+                </a>
+            </div>
                     <div class="menu">
-                    <a href="home.php" class="mLButton">
-                        <div class="mText">
-                            Home
-                        </div>
-                    </a>
-                    <a href="creserv.php" class="mLButton">
-                        <div class="mText">
-                            Create Blogg
-                        </div>
-                    </a>
-                    <a href="login.php" class="mLButton">
-                        <div class="mText">
-                            log out
-                        </div>
-                    </a>
-                    <a href="profile.php?userID=<?php echo $_SESSION['userID'];?>" class="mRButton">
-                        <div class="mText">
-                            Profile
-                        </div>
-                    </a>
+                        <a href="home.php" title="Home" class="mLButton">
+                            <div class="mText">
+                                <img src="../icon/69524.png" class="img">
+                            </div>
+                        </a>
+                        <a href="profile.php" title="Profile" class="mRButton">
+                            <div class="mText">
+                                <img src="../icon/64495.png" class="img">
+                            </div>
+                        </a>
                     <div class="msearch">
                         <form action="search.php" method="POST">
-                            <input type="text" id="search" name="search" placeholder="Search"></form>
+                            <input type="text" id="search" name="search" placeholder="Search"></input>
                         </form>
                     </div>
                 </div>
             <div class='box'>
+                <div class="hiddenbox"></div>
+                <a href="creserv.php" title="New blog" class="creserv">
+                    <img src="../icon/create-new-2081842-1747337.png" class="createimg">
+                </a>
                     <?php
                     echo'<form action="blogg.php" method="get">
                     

@@ -36,6 +36,23 @@
     margin-right:auto;
     background: linear-gradient(rgb(214, 72, 233), rgb(193, 67, 231));
 }
+.block{
+    height:1%;
+}
+.back{
+    width:2%;
+    margin-left:1%;
+    margin-top:1%;
+    background-color: rgba(0, 0, 0, 0);
+    transition: 3s ease;
+}
+.goBack{
+    width:100%;
+}
+.back:hover{
+    cursor: pointer;
+    margin-left:0.5%;
+}
 .title{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 30px;
@@ -143,6 +160,7 @@
     margin-left:3%;
     margin-top:2%;
     font-size:2em;
+    font-family: Arial, Helvetica, sans-serif;
 }
 .button{
     width:65%;
