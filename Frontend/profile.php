@@ -77,7 +77,7 @@ include_once 'getservice.php';
                     $servTitle=serviceTitle($_SESSION['API'],$i);
                     if(isset($servTitle[1])){
                         if($servTitle[0]!='ceID":null,"serviceTitle":null,"serviceDate":null,"serviceType":null,"publis' && $servTitle[1]==$_SESSION['userID']){
-                            echo "<div>Bloggs:</div>
+                            echo "<div class='bloggs'>Bloggs:</div>
                             <form action='blogg.php?service=$i' method='post'>
                                     <button class='button'>$servTitle[0]</button>
                                 </form></div>";
