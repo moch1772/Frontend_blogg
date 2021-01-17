@@ -72,17 +72,18 @@ include_once 'getservice.php';
                         array_push($serv,$redservis['data'][$i]['serviceID']);
                     }
                 }
+                echo "<div class='bloggs'>Your blogs:";
                 $serv=array_unique($serv);
                 foreach($serv as $i){
                     $servTitle=serviceTitle($_SESSION['API'],$i);
                     if(isset($servTitle[1])){
                         if($servTitle[0]!='ceID":null,"serviceTitle":null,"serviceDate":null,"serviceType":null,"publis' && $servTitle[1]==$_SESSION['userID']){
-                            echo "<div class='bloggs'>Bloggs:</div>
-                            <form action='blogg.php?service=$i' method='post'>
+                            echo "<form action='blogg.php?service=$i' method='post'>
                                     <button class='button'>$servTitle[0]</button>
-                                </form></div>";
+                                </form>";
                         }
                     }}
+                echo "</div>";
                 
                     
 
