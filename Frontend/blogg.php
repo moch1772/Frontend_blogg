@@ -24,7 +24,10 @@ if(isset($_GET['service'])){
     echo'<div class="content">
     <div class="background">
         <div class="foreground">
-            <div class="billboard"></div>
+            <div class="billboard">
+                <div class="block"></div>
+                <button onclick="back()" class="back"><img src="../icon/585e473bcb11b227491c3381.png" class="goBack"></button>
+            </div>
             <div class="title"><h1>';
             $serviceTitle=serviceTitle($API,$serviceID);
 
@@ -36,27 +39,27 @@ if(isset($_GET['service'])){
             ?>
             
             <div class="menu">
-            <a href="home.php" class="mLButton">
+            <a href="home.php" title="Home" class="mLButton">
                 <div class="mText">
-                    Home
+                    <img src="../icon/69524.png" class="img">
                 </div>
             </a>
-            <a href="createinlegg.php?service=<?php echo $serviceID ?>" class="mLButton">
+            <a href="profile.php" title="Profile" class="mRButton">
                 <div class="mText">
-                    create Post
-                </div>
-            </a>
-            <a href="profile.php?userID=<?php $_SESSION['userID']?>" class="mRButton">
-                <div class="mText">
-                    Profile
+                    <img src="../icon/64495.png" class="img">
                 </div>
             </a>
         </div>
         <div class="background2">
-    <?php
+            <div class="hiddenbox"></div>
+            <a href="createinlegg.php?service=<?php echo $serviceID ?>" title="New post" class="creblog">
+                <img src="../icon/create-new-2081842-1747337.png" class="createimg">
+            </a>
+        <?php
 
-        servicePage($API,$serviceID,$name);
-        echo'</div></div></div></div>';
-    ?>
+            servicePage($API,$serviceID,$name);
+            echo'</div></div></div></div>';
+        ?>
+<script src="javascript/blogg.js"></script>
 </body>
 </html>
