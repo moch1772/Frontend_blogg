@@ -30,7 +30,6 @@ if(isset($_GET['service'])){
             </div>
             <div class="title"><h1>';
             $serviceTitle=serviceTitle($API,$serviceID);
-
             if($serviceTitle[0]=='ceID":null,"serviceTitle":null,"serviceDate":null,"serviceType":null,"publis'){
                 header('location:home.php');
             }
@@ -52,10 +51,14 @@ if(isset($_GET['service'])){
         </div>
         <div class="background2">
             <div class="hiddenbox"></div>
-            <a href="createinlegg.php?service=<?php echo $serviceID ?>" title="New post" class="creblog">
-                <img src="../icon/create-new-2081842-1747337.png" class="createimg">
-            </a>
         <?php
+        if(isset($serviceTitle[1])){
+            if($serviceTitle[1]==$_SESSION['userID']){
+        echo '
+        
+            <a href="createinlegg.php?service='.$serviceID.'" title="New post" class="creblog">
+                <img src="../icon/create-new-2081842-1747337.png" class="createimg">
+            </a>';}}
 
             servicePage($API,$serviceID,$name);
             echo'</div></div></div></div>';
