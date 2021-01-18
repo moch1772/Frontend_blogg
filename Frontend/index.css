@@ -237,21 +237,6 @@ body::-webkit-scrollbar-track{
 .post4 .column .postTitle{
     margin-left:65%;
 }
-.icon{
-    display: block;
-    margin-top:0.5%;
-    width:4%;
-}
-.post2 .column .icon{
-    margin-left:-87%;
-    margin-top:0.5%;
-    width:4%;
-}
-.post4 .column .icon{
-    margin-left:77%;
-    margin-top:0.5%;
-    width:4%;
-}
 .post .column .img{
     display: block;
     width: 60%;
@@ -289,16 +274,18 @@ body::-webkit-scrollbar-track{
 .edit{
     width: 7%;
     height: 4vh;
-    background-color: greenyellow;
+    background: linear-gradient(rgb(67, 97, 231), rgb(20, 21, 77));
     margin-left: 10%;
     margin-top: 0.3%;
-    font-size: large;
+    font-size: medium;
+    color:white;
 }
 .delet{
     width: 7%;
     height: 4vh;
-    background-color: greenyellow;
+    background: linear-gradient(rgb(67, 97, 231), rgb(20, 21, 77));
     margin-left: 10%;
     margin-top: 5%;
-    font-size: large;
+    font-size: medium;
+    color:white;
 }

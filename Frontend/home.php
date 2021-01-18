@@ -78,7 +78,7 @@ $API=$_SESSION['API'];
                     }
                 }
                     ?>
-                    <div class="hidden"></div>
+                    <div class="hidden2"></div>
             </div>
         </div>
     </div>

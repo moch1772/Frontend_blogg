@@ -37,6 +37,7 @@ body{
 }
 .hidden{
     width:1%;
+    height:5%;
 }
 .logout{
     margin-left:108%;
@@ -142,6 +143,6 @@ body{
     background:linear-gradient(20deg, rgb(44, 87, 167) 1%,rgb(144, 180, 247) 40%, white 100%);
     box-shadow: 0.5px 0.5px 6px 0px;
 }   
-.hidden{
-    height:5%;
+.hidden2{
+    height:30%;
 }
