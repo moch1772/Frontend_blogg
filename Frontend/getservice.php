@@ -133,10 +133,15 @@ function servicePage($API,$serviceID,$name){
             if($username==$name && $postTitel!="Ingress"){
             
                 echo "<form action='blogg.php?service=$serviceID' method='post'>
-                <input type='submit' name='del' value='$pageID' placeholder='delete'>
+                <input type='hidden' name='de' value='$pageID'>
+                <input class='delet' type='submit' name='del' value='delete'>
+                </form>
+                <form action='updatepage.php?service=$serviceID' method='post'>
+                <input type='hidden' name='edit' value='$pageID'>
+                <input class='edit' type='submit' name='ed' value='edit'>
                 </form>";
                 if(isset($_POST['del'])){
-                    deletePage($API,$_POST['del']);
+                    deletePage($API,$_POST['de']);
                 }
             }
             }

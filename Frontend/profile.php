@@ -14,16 +14,19 @@ include_once 'getservice.php';
     <div class="content">
         <div class="background">
             <div class="foreground">
-                <div class="billboard"></div>
+                <div class="billboard">
+                    <div class="block"></div>
+                    <button onclick="back()" class="back"><img src="../icon/585e473bcb11b227491c3381.png" class="goBack"></button>
+                </div>
                 <div class="title"><h1>Profile</h1></div>
                 
                 <div class="menu">
-                <a href="home.php" class="mLButton">
+                <a href="home.php" title="Home" class="mLButton">
                     <div class="mText">
                         <img src="../icon/69524.png" class="img">
                     </div>
                 </a>
-                <a href="profile.php" class="mRButton">
+                <a href="profile.php" title="Profile" class="mRButton">
                     <div class="mText">
                         <img src="../icon/64495.png" class="img">
                     </div>
@@ -39,8 +42,8 @@ include_once 'getservice.php';
 
 
                     echo '<div class="profile">
-                        <div class="name">Username '.$_SESSION['username'].'</div>
-                        <div class="password">Password ';
+                        <div class="name">Username: '.$_SESSION['username'].'</div>
+                        <div class="password">Password: ';
                         for ($i=0;$i<strlen($_SESSION['password']);$i++)
                         {
                             echo "*";
@@ -69,17 +72,18 @@ include_once 'getservice.php';
                         array_push($serv,$redservis['data'][$i]['serviceID']);
                     }
                 }
+                echo "<div class='bloggs'>Your blogs:";
                 $serv=array_unique($serv);
                 foreach($serv as $i){
                     $servTitle=serviceTitle($_SESSION['API'],$i);
                     if(isset($servTitle[1])){
                         if($servTitle[0]!='ceID":null,"serviceTitle":null,"serviceDate":null,"serviceType":null,"publis' && $servTitle[1]==$_SESSION['userID']){
-                            echo "<div>Bloggs:</div>
-                            <form action='blogg.php?service=$i' method='post'>
+                            echo "<form action='blogg.php?service=$i' method='post'>
                                     <button class='button'>$servTitle[0]</button>
-                                </form></div>";
+                                </form>";
                         }
                     }}
+                echo "</div>";
                 
                     
 
@@ -87,5 +91,6 @@ include_once 'getservice.php';
             </div>
         </div>
     </div>
+<script src="javascript/profile.js"></script>
 </body>
 </html>
