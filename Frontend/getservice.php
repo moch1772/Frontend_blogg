@@ -76,7 +76,7 @@ function servicePage($API,$serviceID,$name){
                 $imageURL=$redPost['posts'][$s]['imageURL'];
                 if($i==0 && $s==0 && $postTitel="Ingress"){
                     echo"<div class='ingress' style='font-weight:bold;'>
-                    <div class='ingTitle'><h2>$postTitel</h2></div>
+                    <div class='ingTitle'><h2>Description</h2></div>
                     <div class='ingText'>$postText</div>
                     </div>";
                 }else{
@@ -84,7 +84,6 @@ function servicePage($API,$serviceID,$name){
                     echo"<div class='post'>
                     <div class='column'>
                     <div class='postTitle'><h2>$postTitel</h2></div>
-                    <img src='../icon/25360.png' class='icon'>
                     <div class='text'>$postText</div>
                     <img src='$imageURL' class='img'>
                     </div>
@@ -94,7 +93,6 @@ function servicePage($API,$serviceID,$name){
                         <div class='column'>
                         <div class='postTitle'><h2>$postTitel</h2></div>
                         <img src='../icon/25360.png' class='icon'>
-                        <img src='$imageURL' class='img'>
                         <div class='text'>$postText</div>
                         </div>
                         </div>";
@@ -103,7 +101,6 @@ function servicePage($API,$serviceID,$name){
                         echo"<div class='post3'>
                         <div class='column'>
                         <div class='postTitle'><h2>$postTitel</h2></div>
-                        <img src='../icon/25360.png' class='icon'>
                         <div class='text'>$postText</div>
                         </div>
                         </div>";
@@ -112,7 +109,6 @@ function servicePage($API,$serviceID,$name){
                         echo"<div class='post4'>
                         <div class='column'>
                         <div class='postTitle'><h2>$postTitel</h2></div>
-                        <img src='../icon/25360.png' class='icon'>
                         <div class='text'>$postText</div>
                         </div>
                         </div>";
@@ -121,7 +117,6 @@ function servicePage($API,$serviceID,$name){
                         echo"<div class='post'>
                         <div class='column'>
                         <div class='postTitle'><h2>$postTitel</h2></div>
-                        <img src='../icon/25360.png' class='icon'>
                         <img src='$imageURL' class='img'>
                         <div class='text'>$postText</div>
                         </div>
@@ -134,11 +129,11 @@ function servicePage($API,$serviceID,$name){
             
                 echo "<form action='blogg.php?service=$serviceID' method='post'>
                 <input type='hidden' name='de' value='$pageID'>
-                <input class='delet' type='submit' name='del' value='delete'>
+                <input class='delet' type='submit' name='del' value='Delete'>
                 </form>
                 <form action='updatepage.php?service=$serviceID' method='post'>
                 <input type='hidden' name='edit' value='$pageID'>
-                <input class='edit' type='submit' name='ed' value='edit'>
+                <input class='edit' type='submit' name='ed' value='Edit'>
                 </form>";
                 if(isset($_POST['del'])){
                     deletePage($API,$_POST['de']);

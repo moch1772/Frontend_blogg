@@ -21,7 +21,6 @@ $url = "http://wider.ntigskovde.se/api/pages/read_post_page.php?API=$API&pageID=
         
 $outupt = file_get_contents($url);
 $redPost=json_decode($outupt,true);
-var_dump($redPost);
 timeout($redPost);
 
 if(isset($redPost['message'])){
@@ -46,9 +45,7 @@ for ($s=0; $s < $cont; $s++) {
    <input type='hidden' name='page' value='$pageID'>
    <input type='hidden' name='user' value='$username'>
    <input type='file' name='image[]' accept='image/x-png,image/gif,image/jpeg'>
-   <img src='$img' class='img'>
- 
-   <input type='submit' name='dete' value='$postID' placeholder='delete'>";
+   <img src='$img' class='img'>";
 }
 echo"<div id='pp'></div>
 <input type='radio' id='picLeft' name='picControl' value='picLeft'>
