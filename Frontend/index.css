@@ -155,6 +155,7 @@ body::-webkit-scrollbar-track{
     position: relative;
     width:70vw;
     margin:0 auto;
+    display:flex;
 }
 .post2{
     position: relative;
@@ -167,6 +168,7 @@ body::-webkit-scrollbar-track{
     position: relative;
     width:70vw;
     margin:0 auto;
+    display:flex;
 }
 .post4{
     position: relative;
@@ -242,4 +244,20 @@ body::-webkit-scrollbar-track{
     margin-left: 0%;
     margin-top:12%;
     color:white;
+}
+.edit{
+    width: 7%;
+    height: 4vh;
+    background-color: greenyellow;
+    margin-left: 10%;
+    margin-top: 0.3%;
+    font-size: large;
+}
+.delet{
+    width: 7%;
+    height: 4vh;
+    background-color: greenyellow;
+    margin-left: 10%;
+    margin-top: 5%;
+    font-size: large;
 }

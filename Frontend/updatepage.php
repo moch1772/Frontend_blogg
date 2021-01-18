@@ -12,7 +12,11 @@ include "getservice.php";
 $pageID=$_POST['edit'];
 
 $API=$_SESSION['API'];
-
+if(isset($_GET['service'])){
+    $serviceID=$_GET['service'];
+    }else{
+        header('location:home.php');
+    }
 $url = "http://wider.ntigskovde.se/api/pages/read_post_page.php?API=$API&pageID=$pageID";
         
 $outupt = file_get_contents($url);
@@ -39,10 +43,12 @@ for ($s=0; $s < $cont; $s++) {
    <input type='text' name='text[]' value='$postText'>
    <input type='hidden' name='postID[]' value='$postID'>
    <input type='hidden' name='img[]' value='$img'>
+   <input type='hidden' name='page' value='$pageID'>
+   <input type='hidden' name='user' value='$username'>
    <input type='file' name='image[]' accept='image/x-png,image/gif,image/jpeg'>
    <img src='$img' class='img'>
  
-   <input type='submit' name='delete' value='$postID' placeholder='delete'>";
+   <input type='submit' name='dete' value='$postID' placeholder='delete'>";
 }
 echo"<div id='pp'></div>
 <input type='radio' id='picLeft' name='picControl' value='picLeft'>
@@ -58,19 +64,15 @@ echo"<div id='pp'></div>
 <input type='submit' name='submit' value='submit'>
 <input type='button' value='add text box' onclick='newpost(pp)'>
 </form>";
-if (array_key_exists('delete',$_POST)){
-   
-    $poID=$_POST['delete'];
-    echo"sås";
-    deltPost($API,$poID);
-}
-if (array_key_exists('submit',$_POST)) {
+if (isset($_POST['submit'])) {
     echo "fun";
     $postTe=$_POST['text'];
     $postTi=$_POST['title'];
     $poID=$_POST['postID'];
-    //$img=$_POST['img'];
+    $igg=$_POST['img'];
     $style=$_POST['picControl'];
+    $user=$_POST['user'];
+    $pa=$_POST['page'];
     $count=countt($postTi);
     $imageArray=array();
 
@@ -125,16 +127,15 @@ if (array_key_exists('submit',$_POST)) {
                 if($style=='picRight'){
                     array_push($imageArray,"../img/right/".$image);
                 }
+            }else{
+                array_push($imageArray,$igg[$i]);
             }
         }
     }
-    $igg=$redPost['posts'][$i]['imageURL'];
+    //$igg=$redPost['posts'][$i]['imageURL'];
     
     
-    if(isset($igg)){
-            array_push($imageArray,$igg);
-              
-    }
+    
     if($style=='textLeft'){
         array_push($imageArray,"../img/left");
     }
@@ -145,9 +146,10 @@ if (array_key_exists('submit',$_POST)) {
     }
     
     
-        cretPost($API,$count,$imageArray,$postTe,$postTi,$pageID,$username); 
+        
+}cretPost($API,$count,$imageArray,$postTe,$postTi,$pa,$user); 
         deltallPost($API,$count,$poID);
-}}
+    header("blogg.php?service=$serviceID");}
 
 function deltPost($API,$postID){
     

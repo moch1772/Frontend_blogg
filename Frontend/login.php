@@ -10,7 +10,7 @@
 
     <?php
     session_start();
-    $_SESSION = array();
+    
     include "getservice.php";
     echo'<div class="content"> 
             <div class="foreground">
