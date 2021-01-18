@@ -43,15 +43,10 @@
                 echo'<form action="creserv.php" method="post">
                 <input class="title" type="text" id="title" name="serviceTitle" requierd placeholder="Title"><br>
                 <input type="hidden" name="userID" value="1"><br>
-                <input class="ingress2" id="ingress" type="text" name="postTitle" requierd placeholder="Ingress"><br>
-                <label class="ingress" for="post">Ingress:</label><h2><div class="resIngress" id="resIngress"></div></h2><br>
+                <label class="ingress" for="post">Description:</label><h2><div class="resIngress" id="resIngress"></div></h2><br>
                 <br>
                 <textarea type="text" name="postText" requierd placeholder="Text"></textarea><br>
-                <label class="publish" for="publish">Publish:</label> 
-                <input type="radio" name="publish" value="1" checked>
-                <label class="noPublish" for="publish">Don´t publish:</label>
-                <input type="radio" name="publish" value="0"><br>
-                <p class="note">Note that if you publish this blogg, it will show for other users</p>
+                <p class="note">Type a description about what your blog will be about</p>
                 <input class="submit" type="submit" name="submit">
                 </form>';
 
@@ -63,7 +58,7 @@
                     $postText=array($_POST['postText']);
                     $image=array("Ingress");
                 
-                    $publish=$_POST['publish'];
+                    $publish=1;
                     $ch=curl_init();
                     $arr= json_encode(array("userID"=>$userID,"serviceType"=>3,"publish"=>$publish,"serviceTitle"=>$serviceTitle));
                     $url="http://wider.ntigskovde.se/api/pages/create_service.php?API=$API";
